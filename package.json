@@ -1,0 +1,12 @@
+{
+  "name": "lakewood-grocery-compare",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Compare grocery prices across local Lakewood NJ kosher grocers.",
+  "scripts": {
+    "scrape": "node scrape.js"
+  },
+  "dependencies": {
+    "playwright": "^1.47.0"
+  }
+}

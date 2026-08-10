@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Lakewood Grocery Price Compare</title>
+<style>
+  :root{
+    --bg:#0f1216;--surface:#171b21;--surface-2:#1e242c;--line:#2a323c;
+    --text:#e8edf2;--muted:#9aa7b4;--accent:#3ba676;--accent-soft:#12351f;
+    --warn:#d9a441;--chip:#222a33;--shadow:0 2px 12px rgba(0,0,0,.35);
+  }
+  @media (prefers-color-scheme:light){
+    :root{--bg:#f4f6f8;--surface:#fff;--surface-2:#f0f3f6;--line:#e2e7ec;
+    --text:#17202a;--muted:#5f6b78;--accent:#1f8f5f;--accent-soft:#e2f3e9;
+    --warn:#b57e15;--chip:#eef1f4;--shadow:0 1px 8px rgba(20,30,45,.08);}
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{margin:0;background:var(--bg);color:var(--text);padding-bottom:120px;
+    font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  header{position:sticky;top:0;z-index:20;background:var(--bg);padding:14px 16px 8px;
+    border-bottom:1px solid var(--line);padding-top:max(14px,env(safe-area-inset-top));}
+  h1{font-size:19px;margin:0 0 2px;letter-spacing:-.2px}
+  .sub{color:var(--muted);font-size:12px;margin:0 0 10px}
+  .search-wrap{position:relative}
+  input[type=search]{width:100%;padding:11px 12px 11px 38px;border-radius:11px;border:1px solid var(--line);
+    background:var(--surface);color:var(--text);font-size:16px;outline:none}
+  input[type=search]:focus{border-color:var(--accent)}
+  .search-ico{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted)}
+  .meta{padding:8px 16px 0;color:var(--muted);font-size:11.5px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block}
+  .chips{display:flex;gap:7px;overflow-x:auto;padding:10px 16px 4px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:0 0 auto;background:var(--chip);border:1px solid var(--line);color:var(--muted);
+    padding:6px 11px;border-radius:999px;font-size:12.5px;white-space:nowrap;cursor:pointer;font-weight:500}
+  .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .list{padding:8px 16px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 14px;
+    margin-bottom:11px;box-shadow:var(--shadow)}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .item-name{font-weight:650;font-size:15px;margin:0}
+  .item-size{color:var(--muted);font-size:12px;margin-top:1px}
+  .add-btn{flex:0 0 auto;border:1px solid var(--accent);background:transparent;color:var(--accent);
+    border-radius:9px;width:34px;height:34px;font-size:20px;line-height:1;cursor:pointer}
+  .add-btn.in{background:var(--accent);color:#fff}
+  .prices{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:11px}
+  .prices.single{grid-template-columns:1fr}
+  .pr{display:flex;justify-content:space-between;align-items:center;background:var(--surface-2);
+    border:1px solid transparent;border-radius:9px;padding:7px 9px;font-size:13px}
+  .pr.best{border-color:var(--accent);background:var(--accent-soft)}
+  .pr .store{color:var(--muted);font-size:11.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .pr.best .store{color:var(--accent);font-weight:600}
+  .pr .amt{font-weight:650;font-variant-numeric:tabular-nums}
+  .pr.best .amt{color:var(--accent)}
+  .best-tag{font-size:9.5px;background:var(--accent);color:#fff;border-radius:5px;padding:1px 5px;margin-left:6px;font-weight:700}
+  .empty{text-align:center;color:var(--muted);padding:50px 20px;font-size:14px;line-height:1.6}
+  .cart{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface);border-top:1px solid var(--line);
+    box-shadow:0 -3px 16px rgba(0,0,0,.25);padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    transform:translateY(110%);transition:transform .25s ease}
+  .cart.show{transform:translateY(0)}
+  .cart-head{display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+  .cart-title{font-weight:650;font-size:14px}
+  .cart-toggle{color:var(--muted);font-size:12px}
+  .cart-body{margin-top:11px;display:none}
+  .cart-body.open{display:block}
+  .summ{display:flex;gap:9px;margin-bottom:10px}
+  .summ .box{flex:1;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:10px}
+  .summ .lab{font-size:11px;color:var(--muted);margin-bottom:3px}
+  .summ .val{font-size:19px;font-weight:700;font-variant-numeric:tabular-nums}
+  .summ .box.split .val{color:var(--accent)}
+  .summ .note{font-size:10.5px;color:var(--muted);margin-top:3px}
+  .cart-items{max-height:34vh;overflow-y:auto}
+  .ci{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px}
+  .ci:last-child{border-bottom:none}
+  .ci .nm{flex:1;overflow:hidden}.ci .nm b{font-weight:600}
+  .ci .nm span{display:block;color:var(--accent);font-size:11px}
+  .ci .rm{color:var(--muted);border:none;background:none;font-size:17px;cursor:pointer;padding:0 4px}
+  .savings{background:var(--accent-soft);color:var(--accent);border-radius:9px;padding:8px 10px;font-size:12px;font-weight:600;margin-bottom:10px;text-align:center}
+  .clear{width:100%;background:none;border:1px solid var(--line);color:var(--muted);border-radius:9px;padding:9px;font-size:12.5px;cursor:pointer;margin-top:8px}
+  .fab-count{background:var(--accent);color:#fff;border-radius:999px;font-size:12px;padding:1px 8px;font-weight:700}
+</style>
+</head>
+<body>
+<header>
+  <h1>🛒 Lakewood Grocery Compare</h1>
+  <p class="sub">Live prices from local kosher grocers</p>
+  <div class="search-wrap"><span class="search-ico">🔍</span>
+    <input type="search" id="q" placeholder="Search milk, chicken, challah…" autocomplete="off"></div>
+</header>
+<div class="meta" id="meta"></div>
+<div class="chips" id="chips"></div>
+<div class="list" id="list"><div class="empty">Loading prices…</div></div>
+
+<div class="cart" id="cart">
+  <div class="cart-head" id="cartHead">
+    <span class="cart-title">My list <span class="fab-count" id="cnt">0</span></span>
+    <span class="cart-toggle" id="cartToggle">tap to expand ▲</span>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="summ">
+      <div class="box split"><div class="lab">Cheapest (split shop)</div><div class="val" id="splitTotal">$0.00</div><div class="note" id="splitNote"></div></div>
+      <div class="box"><div class="lab">Best single store</div><div class="val" id="oneTotal">$0.00</div><div class="note" id="oneNote"></div></div>
+    </div>
+    <div class="savings" id="savings" style="display:none"></div>
+    <div class="cart-items" id="cartItems"></div>
+    <button class="clear" id="clearBtn">Clear list</button>
+  </div>
+</div>
+
+<script>
+let STORES=[], ITEMS=[], activeStores=new Set(), query="";
+const cart=new Map();
+
+// group a flat product list into comparable items keyed by a normalized name
+function normKey(name,size){
+  const cleaned=(name+' '+(size||'')).toLowerCase()
+    .replace(/[^a-z0-9 ]/g,'').replace(/\b(oz|lb|lbs|gal|ct|pk|pack|each|dozen|gallon|count|the|a)\b/g,'')
+    .replace(/\s+/g,' ').trim();
+  // sort words so "Large Eggs Dozen" and "Eggs Large Dozen" match
+  return cleaned.split(' ').filter(Boolean).sort().join(' ');
+}
+
+async function load(){
+  let data;
+  try{
+    const res=await fetch('data/prices.json?_='+Date.now());
+    data=await res.json();
+  }catch(e){
+    document.getElementById('list').innerHTML='<div class="empty">Couldn\'t load prices yet.<br>The price robot writes <b>data/prices.json</b> on its first run.<br>Open the <b>Actions</b> tab on GitHub and run <b>“Update grocery prices”</b> once to fill it.</div>';
+    return;
+  }
+  const products=(data&&data.products)||[];
+  if(!products.length){
+    document.getElementById('list').innerHTML='<div class="empty">No prices captured yet.<br>Run the <b>“Update grocery prices”</b> action on GitHub to pull the first batch.</div>';
+    renderMeta(data);return;
+  }
+  // build items
+  const map=new Map();
+  for(const p of products){
+    const k=normKey(p.name,p.size);
+    if(!map.has(k)) map.set(k,{name:p.name,size:p.size,cat:p.category||'',prices:{}});
+    const it=map.get(k);
+    // keep lowest price seen per store for this item
+    if(it.prices[p.store]==null||p.price<it.prices[p.store]) it.prices[p.store]=p.price;
+  }
+  ITEMS=[...map.values()].sort((a,b)=>a.name.localeCompare(b.name));
+  STORES=[...new Set(products.map(p=>p.store))].sort();
+  activeStores=new Set(STORES);
+  renderMeta(data);renderChips();render();renderCart();
+}
+
+function renderMeta(data){
+  const el=document.getElementById('meta');
+  const when=data&&data.updatedAt?new Date(data.updatedAt).toLocaleString([], {month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):'—';
+  el.innerHTML=`<span class="dot"></span> Updated ${when} &middot; ${STORES.length} store${STORES.length!==1?'s':''} &middot; ${ITEMS.length} items`;
+}
+
+function renderChips(){
+  const el=document.getElementById('chips');el.innerHTML='';
+  if(STORES.length<2)return; // no point filtering with one store
+  const all=document.createElement('div');
+  all.className='chip'+(activeStores.size===STORES.length?' on':'');all.textContent='All stores';
+  all.onclick=()=>{activeStores=new Set(STORES);renderChips();render();};el.appendChild(all);
+  STORES.forEach(s=>{
+    const c=document.createElement('div');
+    c.className='chip'+(activeStores.has(s)&&activeStores.size!==STORES.length?' on':'');c.textContent=s;
+    c.onclick=()=>{
+      if(activeStores.size===STORES.length)activeStores=new Set([s]);
+      else if(activeStores.has(s)){activeStores.delete(s);if(!activeStores.size)activeStores=new Set(STORES);}
+      else activeStores.add(s);
+      renderChips();render();
+    };el.appendChild(c);
+  });
+}
+
+const active=s=>activeStores.has(s);
+function entries(it){return STORES.filter(active).map(s=>({store:s,price:it.prices[s]})).filter(e=>e.price!=null);}
+function best(it){const e=entries(it);return e.length?e.reduce((a,b)=>b.price<a.price?b:a):null;}
+
+function render(){
+  const q=query.trim().toLowerCase();
+  const rows=ITEMS.map((it,i)=>({it,i})).filter(({it})=>!q||it.name.toLowerCase().includes(q)||(it.cat||'').toLowerCase().includes(q));
+  const list=document.getElementById('list');
+  if(!rows.length){list.innerHTML='<div class="empty">No items match “'+query+'”.</div>';return;}
+  list.innerHTML='';
+  const multi=STORES.filter(active).length>1;
+  rows.forEach(({it,i})=>{
+    const b=best(it);
+    const card=document.createElement('div');card.className='card';
+    const prHtml=STORES.filter(active).map(s=>{
+      const p=it.prices[s];
+      if(p==null)return `<div class="pr"><span class="store">${s}</span><span class="amt" style="opacity:.4">—</span></div>`;
+      const isBest=multi&&b&&p===b.price&&s===b.store;
+      return `<div class="pr${isBest?' best':''}"><span class="store">${s}${isBest?'<span class="best-tag">LOW</span>':''}</span><span class="amt">$${p.toFixed(2)}</span></div>`;
+    }).join('');
+    card.innerHTML=`<div class="card-top"><div><p class="item-name">${it.name}</p>${it.size?`<div class="item-size">${it.size}</div>`:''}</div>
+      <button class="add-btn${cart.has(i)?' in':''}" data-i="${i}">${cart.has(i)?'✓':'+'}</button></div>
+      <div class="prices${multi?'':' single'}">${prHtml}</div>`;
+    card.querySelector('.add-btn').onclick=e=>{e.stopPropagation();toggleCart(i);};
+    list.appendChild(card);
+  });
+}
+
+function toggleCart(i){cart.has(i)?cart.delete(i):cart.set(i,ITEMS[i]);render();renderCart();}
+const cartEl=document.getElementById('cart'),cartBody=document.getElementById('cartBody'),cartToggle=document.getElementById('cartToggle');
+let cartOpen=false;
+document.getElementById('cartHead').onclick=()=>{cartOpen=!cartOpen;cartBody.classList.toggle('open',cartOpen);cartToggle.textContent=cartOpen?'tap to collapse ▼':'tap to expand ▲';};
+document.getElementById('clearBtn').onclick=()=>{cart.clear();render();renderCart();};
+
+function renderCart(){
+  document.getElementById('cnt').textContent=cart.size;
+  cartEl.classList.toggle('show',cart.size>0);
+  if(!cart.size)return;
+  let splitTotal=0;const splitStores=new Set();
+  const ci=document.getElementById('cartItems');ci.innerHTML='';
+  cart.forEach((it,i)=>{
+    const b=best(it);if(b){splitTotal+=b.price;splitStores.add(b.store);}
+    const row=document.createElement('div');row.className='ci';
+    row.innerHTML=`<button class="rm">×</button><div class="nm"><b>${it.name}</b><span>${b?b.store+' · $'+b.price.toFixed(2):'not available'}</span></div>`;
+    row.querySelector('.rm').onclick=()=>toggleCart(i);ci.appendChild(row);
+  });
+  let bStore=null,bTot=Infinity,bCov=0;
+  STORES.filter(active).forEach(s=>{
+    let tot=0,cov=0;cart.forEach(it=>{const p=it.prices[s];if(p!=null){tot+=p;cov++;}});
+    if(cov>bCov||(cov===bCov&&tot<bTot)){bStore=s;bTot=tot;bCov=cov;}
+  });
+  document.getElementById('splitTotal').textContent='$'+splitTotal.toFixed(2);
+  document.getElementById('splitNote').textContent=`across ${splitStores.size} store${splitStores.size>1?'s':''}`;
+  document.getElementById('oneTotal').textContent=bCov?'$'+bTot.toFixed(2):'—';
+  document.getElementById('oneNote').textContent=bStore?`${bStore} · covers ${bCov}/${cart.size}`:'';
+  const save=bTot-splitTotal,sav=document.getElementById('savings');
+  if(STORES.length>1&&save>0.005){sav.style.display='block';sav.textContent=`💰 Split-shopping saves $${save.toFixed(2)} vs. ${bStore} alone`;}
+  else sav.style.display='none';
+}
+
+document.getElementById('q').addEventListener('input',e=>{query=e.target.value;render();});
+load();
+</script>
+</body>
+</html>

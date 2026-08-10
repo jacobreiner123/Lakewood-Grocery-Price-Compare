@@ -2,8 +2,7 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
-const MAX_PAGES   = parseInt(process.env.MAX_PAGES   || '80', 10);
-const MAX_SCROLLS = parseInt(process.env.MAX_SCROLLS || '6', 10);
+const MAX_LINKS = parseInt(process.env.MAX_LINKS || '40', 10);
 
 const STORES = [
   {
@@ -65,12 +64,6 @@ function cleanTitle(t) {
   if (STOPWORDS.has(s.toLowerCase())) return null;
   return s;
 }
-async function collectLinks(page, linkRe) {
-  try {
-    const hrefs = await page.$$eval('a[href]', as => as.map(a => a.href));
-    return [...new Set(hrefs.filter(h => linkRe.test(h)))];
-  } catch { return []; }
-}
 
 async function crawlStore(browser, cfg) {
   const page = await browser.newPage({
@@ -100,62 +93,23 @@ async function crawlStore(browser, cfg) {
   catch (e) { console.log(`[${cfg.name}] home failed: ${e.message.split('\n')[0]}`); await page.close(); return []; }
   await page.waitForTimeout(6000);
 
-  const queue = await collectLinks(page, cfg.linkRe);
-  console.log(`[${cfg.name}] ${queue.length} links from start page`);
-  const visited = new Set([cfg.home]);
+  let catLinks = [];
+  try {
+    const hrefs = await page.$$eval('a[href]', as => as.map(a => a.href));
+    catLinks = [...new Set(hrefs)].filter(h => cfg.linkRe.test(h)).slice(0, MAX_LINKS);
+  } catch (e) { console.log(`[${cfg.name}] link scan failed: ${e.message.split('\n')[0]}`); }
+  console.log(`[${cfg.name}] visiting ${catLinks.length} category links`);
 
-  while (queue.length && visited.size <= MAX_PAGES) {
-    const link = queue.shift();
-    if (visited.has(link)) continue;
-    visited.add(link);
+  for (const link of catLinks) {
+    currentCategory = null;
     try {
       await page.goto(link, { waitUntil: 'domcontentloaded', timeout: 45000 });
-      await page.waitForTimeout(2500);
-      currentCategory = cleanTitle(await page.title());
-      let stagnant = 0;
-      for (let i = 0; i < MAX_SCROLLS && stagnant < 2; i++) {
-        const before = byKey.size;
-        await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-        await page.waitForTimeout(1400);
-        if (byKey.size === before) stagnant++; else stagnant = 0;
-      }
-      if (visited.size < MAX_PAGES) {
-        for (const l of await collectLinks(page, cfg.linkRe)) {
-          if (!visited.has(l) && !queue.includes(l)) queue.push(l);
-        }
-      }
-      console.log(`[${cfg.name}] ${currentCategory || link} -> total ${byKey.size} (queue ${queue.length})`);
+      await page.waitForTimeout(3000);
+      try { currentCategory = cleanTitle(await page.title()); } catch {}
     } catch (e) {
       console.log(`[${cfg.name}] skip: ${e.message.split('\n')[0]}`);
     }
   }
 
   await page.close();
-  const records = [...byKey.values()];
-  console.log(`[${cfg.name}] captured ${records.length} products from ${visited.size - 1} pages`);
-  return records;
-}
-
-(async () => {
-  const browser = await chromium.launch({ headless: true });
-  let all = [];
-  for (const cfg of STORES) {
-    try { all = all.concat(await crawlStore(browser, cfg)); }
-    catch (e) { console.error(`${cfg.name} crawl failed:`, e.message); }
-  }
-  await browser.close();
-
-  const outDir = path.join(__dirname, 'data');
-  fs.mkdirSync(outDir, { recursive: true });
-  const payload = {
-    updatedAt: new Date().toISOString(),
-    storeCount: new Set(all.map(r => r.store)).size,
-    productCount: all.length,
-    products: all,
-  };
-  fs.writeFileSync(path.join(outDir, 'prices.json'), JSON.stringify(payload, null, 2));
-  console.log(`\nWrote data/prices.json — ${all.length} products across ${payload.storeCount} store(s).`);
-  const byStore = {};
-  all.forEach(r => { byStore[r.store] = (byStore[r.store] || 0) + 1; });
-  console.log('Per store:', JSON.stringify(byStore));
-})().catch(e => { console.error('FATAL', e); process.exit(1); });
+  const records =

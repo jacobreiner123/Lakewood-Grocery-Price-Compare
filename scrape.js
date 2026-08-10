@@ -3,8 +3,10 @@ const fs = require('fs');
 const path = require('path');
 
 const SEASONS_HOME = 'https://seasonskosher.com/lakewood';
-const MAX_CATEGORIES = parseInt(process.env.MAX_CATEGORIES || '60', 10);
-const MAX_SCROLLS = parseInt(process.env.MAX_SCROLLS || '12', 10);
+const MAX_PAGES   = parseInt(process.env.MAX_PAGES   || '80', 10);
+const MAX_SCROLLS = parseInt(process.env.MAX_SCROLLS || '6', 10);
+
+const LINK_RE = /(department|category|c\/|categories|aisle)/i;
 
 const NAME_KEYS  = ['name','productName','title','description','displayName','itemName'];
 const PRICE_KEYS = ['price','salePrice','regularPrice','ourPrice','unitPrice','currentPrice','priceValue'];
@@ -46,9 +48,16 @@ function harvest(node, found, depth = 0) {
   }
 }
 function catFromUrl(u) {
-  const m = String(u).match(/\/category\/\d+\/([^/?#]+)/i);
+  const m = String(u).match(/\/(?:category|department)\/\d+\/([^/?#]+)/i);
   if (!m) return null;
   return decodeURIComponent(m[1]).replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+async function collectLinks(page) {
+  try {
+    const hrefs = await page.$$eval('a[href]', as => as.map(a => a.href));
+    return [...new Set(hrefs.filter(h => LINK_RE.test(h)))];
+  } catch { return []; }
 }
 
 async function scrapeSeasons(browser) {
@@ -79,20 +88,14 @@ async function scrapeSeasons(browser) {
   await page.goto(SEASONS_HOME, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await page.waitForTimeout(6000);
 
-  let catLinks = [];
-  try {
-    catLinks = await page.$$eval('a[href*="/category/"]', as => as.map(a => a.href));
-  } catch {}
-  catLinks = [...new Set(catLinks)];
-  const seenIds = new Set();
-  catLinks = catLinks.filter(u => {
-    const m = u.match(/\/category\/(\d+)/);
-    if (!m || seenIds.has(m[1])) return false;
-    seenIds.add(m[1]); return true;
-  }).slice(0, MAX_CATEGORIES);
-  console.log(`[${STORE}] found ${catLinks.length} categories`);
+  const queue = await collectLinks(page);
+  console.log(`[${STORE}] ${queue.length} links from homepage`);
+  const visited = new Set([SEASONS_HOME]);
 
-  for (const link of catLinks) {
+  while (queue.length && visited.size <= MAX_PAGES) {
+    const link = queue.shift();
+    if (visited.has(link)) continue;
+    visited.add(link);
     currentCategory = catFromUrl(link);
     try {
       await page.goto(link, { waitUntil: 'domcontentloaded', timeout: 45000 });
@@ -104,7 +107,12 @@ async function scrapeSeasons(browser) {
         await page.waitForTimeout(1400);
         if (byKey.size === before) stagnant++; else stagnant = 0;
       }
-      console.log(`[${STORE}] ${currentCategory || link}: total so far ${byKey.size}`);
+      if (visited.size < MAX_PAGES) {
+        for (const l of await collectLinks(page)) {
+          if (!visited.has(l) && !queue.includes(l)) queue.push(l);
+        }
+      }
+      console.log(`[${STORE}] ${currentCategory || link} -> total ${byKey.size} (queue ${queue.length})`);
     } catch (e) {
       console.log(`[${STORE}] skip ${currentCategory || link}: ${e.message.split('\n')[0]}`);
     }
@@ -112,7 +120,7 @@ async function scrapeSeasons(browser) {
 
   await page.close();
   const records = [...byKey.values()];
-  console.log(`[${STORE}] captured ${records.length} products`);
+  console.log(`[${STORE}] captured ${records.length} products from ${visited.size - 1} pages`);
   return records;
 }
 

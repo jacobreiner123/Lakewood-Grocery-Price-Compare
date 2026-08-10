@@ -2,11 +2,21 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
-const SEASONS_HOME = 'https://seasonskosher.com/lakewood';
 const MAX_PAGES   = parseInt(process.env.MAX_PAGES   || '80', 10);
 const MAX_SCROLLS = parseInt(process.env.MAX_SCROLLS || '6', 10);
 
-const LINK_RE = /(department|category|c\/|categories|aisle)/i;
+const STORES = [
+  {
+    name: 'Seasons',
+    home: 'https://seasonskosher.com/lakewood',
+    linkRe: /(department|category|c\/|categories|aisle)/i,
+  },
+  {
+    name: 'Gourmet Glatt',
+    home: 'https://www.gourmetglattonline.com/categories',
+    linkRe: /\/categories(\/\d+\/products)?/i,
+  },
+];
 
 const NAME_KEYS  = ['name','productName','title','description','displayName','itemName'];
 const PRICE_KEYS = ['price','salePrice','regularPrice','ourPrice','unitPrice','currentPrice','priceValue'];
@@ -16,7 +26,7 @@ const SKU_KEYS   = ['sku','id','productId','itemId','upc','code'];
 const STOPWORDS = new Set(['featured products','specials','weekly specials','new items',
   'meat','dairy','produce','bakery','grocery','frozen','deli','fish','appetizing',
   'health & beauty','household','beverages','snacks','candy','wine & liquor','pharmacy',
-  'departments','shop by department','categories','featured']);
+  'departments','shop by department','categories','featured','all products','products']);
 
 const pick = (o, ks) => { for (const k of ks) if (o[k] != null && o[k] !== '') return o[k]; return null; };
 const toPrice = (v) => {
@@ -47,21 +57,22 @@ function harvest(node, found, depth = 0) {
     for (const k of Object.keys(node)) harvest(node[k], found, depth + 1);
   }
 }
-function catFromUrl(u) {
-  const m = String(u).match(/\/(?:category|department)\/\d+\/([^/?#]+)/i);
-  if (!m) return null;
-  return decodeURIComponent(m[1]).replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+function cleanTitle(t) {
+  if (!t) return null;
+  let s = String(t).split('|')[0].split('-')[0].trim();
+  if (!s || s.length < 2) return null;
+  if (/^(shop|home|welcome)/i.test(s)) return null;
+  if (STOPWORDS.has(s.toLowerCase())) return null;
+  return s;
 }
-
-async function collectLinks(page) {
+async function collectLinks(page, linkRe) {
   try {
     const hrefs = await page.$$eval('a[href]', as => as.map(a => a.href));
-    return [...new Set(hrefs.filter(h => LINK_RE.test(h)))];
+    return [...new Set(hrefs.filter(h => linkRe.test(h)))];
   } catch { return []; }
 }
 
-async function scrapeSeasons(browser) {
-  const STORE = 'Seasons';
+async function crawlStore(browser, cfg) {
   const page = await browser.newPage({
     userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36',
   });
@@ -78,28 +89,29 @@ async function scrapeSeasons(browser) {
       if (isJunkName(p.name)) continue;
       const key = (p.name + '|' + (p.size || '')).toLowerCase();
       if (!byKey.has(key)) byKey.set(key, {
-        store: STORE, name: p.name, size: p.size, price: p.price, sku: p.sku,
-        category: currentCategory || catFromUrl(resp.url()), url: resp.url(), scrapedAt: now,
+        store: cfg.name, name: p.name, size: p.size, price: p.price, sku: p.sku,
+        category: currentCategory, url: resp.url(), scrapedAt: now,
       });
     }
   });
 
-  console.log(`[${STORE}] opening home`, SEASONS_HOME);
-  await page.goto(SEASONS_HOME, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  console.log(`[${cfg.name}] opening`, cfg.home);
+  try { await page.goto(cfg.home, { waitUntil: 'domcontentloaded', timeout: 60000 }); }
+  catch (e) { console.log(`[${cfg.name}] home failed: ${e.message.split('\n')[0]}`); await page.close(); return []; }
   await page.waitForTimeout(6000);
 
-  const queue = await collectLinks(page);
-  console.log(`[${STORE}] ${queue.length} links from homepage`);
-  const visited = new Set([SEASONS_HOME]);
+  const queue = await collectLinks(page, cfg.linkRe);
+  console.log(`[${cfg.name}] ${queue.length} links from start page`);
+  const visited = new Set([cfg.home]);
 
   while (queue.length && visited.size <= MAX_PAGES) {
     const link = queue.shift();
     if (visited.has(link)) continue;
     visited.add(link);
-    currentCategory = catFromUrl(link);
     try {
       await page.goto(link, { waitUntil: 'domcontentloaded', timeout: 45000 });
       await page.waitForTimeout(2500);
+      currentCategory = cleanTitle(await page.title());
       let stagnant = 0;
       for (let i = 0; i < MAX_SCROLLS && stagnant < 2; i++) {
         const before = byKey.size;
@@ -108,27 +120,29 @@ async function scrapeSeasons(browser) {
         if (byKey.size === before) stagnant++; else stagnant = 0;
       }
       if (visited.size < MAX_PAGES) {
-        for (const l of await collectLinks(page)) {
+        for (const l of await collectLinks(page, cfg.linkRe)) {
           if (!visited.has(l) && !queue.includes(l)) queue.push(l);
         }
       }
-      console.log(`[${STORE}] ${currentCategory || link} -> total ${byKey.size} (queue ${queue.length})`);
+      console.log(`[${cfg.name}] ${currentCategory || link} -> total ${byKey.size} (queue ${queue.length})`);
     } catch (e) {
-      console.log(`[${STORE}] skip ${currentCategory || link}: ${e.message.split('\n')[0]}`);
+      console.log(`[${cfg.name}] skip: ${e.message.split('\n')[0]}`);
     }
   }
 
   await page.close();
   const records = [...byKey.values()];
-  console.log(`[${STORE}] captured ${records.length} products from ${visited.size - 1} pages`);
+  console.log(`[${cfg.name}] captured ${records.length} products from ${visited.size - 1} pages`);
   return records;
 }
 
 (async () => {
   const browser = await chromium.launch({ headless: true });
   let all = [];
-  try { all = all.concat(await scrapeSeasons(browser)); }
-  catch (e) { console.error('Seasons scraper failed:', e.message); }
+  for (const cfg of STORES) {
+    try { all = all.concat(await crawlStore(browser, cfg)); }
+    catch (e) { console.error(`${cfg.name} crawl failed:`, e.message); }
+  }
   await browser.close();
 
   const outDir = path.join(__dirname, 'data');
@@ -141,5 +155,7 @@ async function scrapeSeasons(browser) {
   };
   fs.writeFileSync(path.join(outDir, 'prices.json'), JSON.stringify(payload, null, 2));
   console.log(`\nWrote data/prices.json — ${all.length} products across ${payload.storeCount} store(s).`);
-  all.slice(0, 10).forEach(r => console.log(`  ${r.store}  $${r.price.toFixed(2)}  ${r.name}`));
+  const byStore = {};
+  all.forEach(r => { byStore[r.store] = (byStore[r.store] || 0) + 1; });
+  console.log('Per store:', JSON.stringify(byStore));
 })().catch(e => { console.error('FATAL', e); process.exit(1); });

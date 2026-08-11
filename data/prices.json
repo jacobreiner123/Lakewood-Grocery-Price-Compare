@@ -1,39 +1,23 @@
 {
-  "updatedAt": "2026-08-10T19:01:55.997Z",
+  "updatedAt": "2026-08-11T10:46:52.376Z",
   "storeCount": 1,
-  "productCount": 177,
+  "productCount": 178,
   "products": [
     {
       "store": "Seasons",
-      "name": "Wesson Canola Oil, 40 Oz",
+      "name": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
       "size": null,
-      "price": 4.69,
+      "price": 3.49,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Med Life 7Inch Plastic Plates",
+      "name": "Old Williamsburg Jumbo Gherkins, 57.48 Oz",
       "size": null,
-      "price": 2.99,
+      "price": 5.99,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Unger Chick Peas, 16 Oz",
-      "size": null,
-      "price": 1.49,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Dove Body Wash W/Pmp Deep Moisture, 30.6 Oz",
-      "size": null,
-      "price": 9.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -41,143 +25,7 @@
       "size": null,
       "price": 6.99,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Beleaves Mixed Green Lettuce",
-      "size": null,
-      "price": 5.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Perfection Plastic Cups 7 Oz, 100 Ct",
-      "size": null,
-      "price": 1.29,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Fruit Riot Sour Pineapple Sour Patch, 8 Oz",
-      "size": null,
-      "price": 6.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Mary's Gone Crackers Super Seed Everything, 4 Oz",
-      "size": null,
-      "price": 3.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Lieber's Mini Marshmallows White, 5 Oz",
-      "size": null,
-      "price": 1.49,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Green Giant White Corn Super Sweet, 11 Oz",
-      "size": null,
-      "price": 2.49,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Blooms Snackers, 13.7 Lb",
-      "size": null,
-      "price": 3.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Bounty Select A Size Kitchen White, 82 Ct",
-      "size": null,
-      "price": 2.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Kelloggs Froot Loops, 8.9 Oz",
-      "size": null,
-      "price": 5.49,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Keizer Salt 7 Pepper Flat Crax, 6 Oz",
-      "size": null,
-      "price": 2.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Keizer Everthing Flat Crax, 6 Oz",
-      "size": null,
-      "price": 2.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Ziploc Freezer Quart Bag, 24 Ct",
-      "size": null,
-      "price": 4.49,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Marys Gon Mary's Gone Super Seed Jalapeno Cracker, 4 Oz",
-      "size": null,
-      "price": 3.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Jonny Pops Red White & Boom, 8 Ct",
-      "size": null,
-      "price": 6.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Beleaves Chopped Spinach, 24 Oz",
-      "size": null,
-      "price": 8.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Imperial Delight Imperial Mushrooms Pieces & Stems, 8 Oz",
-      "size": null,
-      "price": 1.69,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Liebers Olive Oil Extra Light, 34 Oz",
-      "size": null,
-      "price": 11.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -185,111 +33,119 @@
       "size": null,
       "price": 2.49,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Jonny Pops Very Berry Lemonade Org, 8 Ct",
+      "name": "Lieber's Classic Marinara Pasta Sauce, 24 Oz",
       "size": null,
-      "price": 6.99,
+      "price": 2.69,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Wd Lg Round Platter Dried Fruit",
-      "size": null,
-      "price": 34.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Kiwi Sliced",
-      "size": null,
-      "price": 12.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Seasons Veg. Platter Deluxe",
-      "size": null,
-      "price": 60,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Blueberries 9.8 Oz",
-      "size": null,
-      "price": 15.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Seasons Mango Large Sweet",
-      "size": null,
-      "price": 2.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Premium Bananas",
-      "size": null,
-      "price": 0.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Green Garden Dill, 1 Oz",
-      "size": null,
-      "price": 6.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Green Seedless Grapes",
+      "name": "Twizzlers Filled Twists Raspberry 1, 11 Oz",
       "size": null,
       "price": 4.99,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Star Fuit Large",
+      "name": "Abraham's Beef Jerky Teriyaki, 4 Oz",
       "size": null,
-      "price": 5.99,
+      "price": 15.99,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Cantaloupe Cubed Small",
+      "name": "Wondermill White Spelt Flour, 5 Lb",
       "size": null,
-      "price": 7.49,
+      "price": 16.99,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Honeydew Cubed Small",
-      "size": null,
-      "price": 7.49,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Joes Premium Black Mission Figs",
+      "name": "Fruit Riot Crunchy Candy Red White Blueb, 8 Oz",
       "size": null,
       "price": 6.99,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Liebers Avocado Oil, 48 Oz",
+      "size": null,
+      "price": 14.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Gefen Ramen Toppers Onion Garlic, 10 Oz",
+      "size": null,
+      "price": 3.69,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Sugar Party Mixed Berries Gummy Clusters, 12 Ct",
+      "size": null,
+      "price": 4.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Arm&Hammer A&H Liquid Oxi Clean, 45 Oz",
+      "size": null,
+      "price": 6.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Cookie Bites Cookie Bite Chocolate Chip Cookies, 1.5 Oz",
+      "size": null,
+      "price": 0.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Best Bev Hotcups Coffee Print 50 Ct",
+      "size": null,
+      "price": 2.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Lieber Lie Baking Chips Choco, 9 Oz",
+      "size": null,
+      "price": 2.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Head&Shoulder Head & Shoulder Dry Scalp 2In1, 28.2 Oz",
+      "size": null,
+      "price": 10.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Mr Clean X2 Lemon, 64 Oz",
+      "size": null,
+      "price": 9.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -297,71 +153,95 @@
       "size": null,
       "price": 6.99,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Seasons Cherries Red",
-      "size": null,
-      "price": 6.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Seasons Pineapple Golden Size 5",
-      "size": null,
-      "price": 5.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Pomegranate Seeds",
-      "size": null,
-      "price": 19.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Plums Black",
+      "name": "Mary's Cracker Thin Sea Salt, 4 Oz",
       "size": null,
       "price": 3.99,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Passion Fruit",
+      "name": "Beleaves Baby Romain",
+      "size": null,
+      "price": 5.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Mary's Gone Crackers Super Seed Classic, 4 Oz",
+      "size": null,
+      "price": 3.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Tuscanini Vodka Sauce, 14.5 Oz",
       "size": null,
       "price": 6.99,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Melon Delight",
+      "name": "Liebers Pizza Sauce, 24 Oz",
       "size": null,
-      "price": 9.99,
+      "price": 2.69,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Lior Medjool Dates 2 Lb",
+      "name": "Red Seedless Grapes",
       "size": null,
-      "price": 22.99,
+      "price": 4.99,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Orange Slices",
+      "name": "Green Garden Thyme, 1 Oz",
       "size": null,
       "price": 7.49,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Seasons Fruit Fiesta, 32 Oz",
+      "size": null,
+      "price": 14.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Red Plums",
+      "size": null,
+      "price": 3.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Apples Pink Lady",
+      "size": null,
+      "price": 2.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Apples Granny Smith Lb",
+      "size": null,
+      "price": 2.49,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -369,7 +249,119 @@
       "size": null,
       "price": 3.49,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Seasons Vanilla Parfait, 12 Oz",
+      "size": null,
+      "price": 5.49,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Watermelon Cubed",
+      "size": null,
+      "price": 7.49,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Cilantro Bunch",
+      "size": null,
+      "price": 2.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Cantaloupe/Honeydew Sliced",
+      "size": null,
+      "price": 7.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Wd Lg Round Platter Dried Fruit",
+      "size": null,
+      "price": 34.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Premium Bananas",
+      "size": null,
+      "price": 0.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Pomegranate Seeds",
+      "size": null,
+      "price": 19.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Apples Fuji",
+      "size": null,
+      "price": 1.29,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Seasons Fruit Fiesta, LG 48 Oz - please change",
+      "size": null,
+      "price": 17.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Blueberries 9.8 Oz",
+      "size": null,
+      "price": 15.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Driscoll Blueberries, 16 Oz",
+      "size": null,
+      "price": 5.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Apples Golden Delicious",
+      "size": null,
+      "price": 3.49,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Joes Premium Black Mission Figs",
+      "size": null,
+      "price": 6.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Green Seedless Grapes",
+      "size": null,
+      "price": 4.99,
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -377,167 +369,119 @@
       "size": null,
       "price": 7.49,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Apples Gala",
+      "name": "Dill Fresh Bunch",
       "size": null,
-      "price": 0.99,
+      "price": 2.99,
       "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Tabatchnick Chicken Broth, Classic Wholesome, 32 Oz",
-      "size": null,
-      "price": 3.49,
-      "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Macabee Mini Pizza Bagels, 12 1862",
-      "size": null,
-      "price": 10.49,
-      "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Fresca, 2 Ltr",
-      "size": null,
-      "price": 3.49,
-      "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Golden Flow Milk Whole, 32 Oz",
+      "name": "Norman's Vanilla Greek Yogurt, 6 Oz",
       "size": null,
       "price": 2.49,
       "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Golden Fluff Potato Flutes, Ketchup, 0.5 Oz",
+      "name": "Gulden's Mustard, Spicy Brown, 12 Oz",
       "size": null,
-      "price": 0.79,
+      "price": 2.49,
       "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Salad Mate Dressing Lemon Garlic Lite, 12 Oz",
-      "size": null,
-      "price": 7.49,
-      "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Nugo Dark Chocolate Pretzel 6 Pk, 1.7 Oz",
-      "size": null,
-      "price": 11.99,
-      "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Green Gian Potato Yukon Gold Bag, 1 Ct",
-      "size": null,
-      "price": 8.99,
-      "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Natural & Kosher Muenster Cheese Slice, 6 Oz",
-      "size": null,
-      "price": 5.49,
-      "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Gefen Chicken Noodle Soup No MSG, 2.3 Oz",
+      "name": "Mehadrin Leben Chocolate, 6 Oz",
       "size": null,
       "price": 1.99,
       "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Paskesz Chips A Plenty Soft & Chewy, 13 Oz",
+      "name": "Ultra Soft Tissue, 130 Ct",
+      "size": null,
+      "price": 0.99,
+      "category": "Fruit",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "B'gan Cauliflower Florets, 24 Oz",
       "size": null,
       "price": 8.49,
       "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Pas Yisroel Hamburger Buns 8 Pk, 12 Oz",
+      "size": null,
+      "price": 6.49,
+      "category": "Fruit",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Say Cheese Marble Cheese Cake Diet, 2.5 Oz",
+      "size": null,
+      "price": 3.49,
+      "category": "Fruit",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Sensible Portions Veggie Chips Sea Salt, 1 Oz",
+      "size": null,
+      "price": 10,
+      "category": "Fruit",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
       "name": "Kitov Corn Pops, .5 Oz.",
       "size": null,
-      "price": 0.79,
+      "price": 2,
       "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "A&B Gefilte Fish Regular, 20 Oz",
-      "size": null,
-      "price": 12.99,
-      "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Best Bev 24 Oz Cold Cups W/ Lids, 10 Ct",
-      "size": null,
-      "price": 5,
-      "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Snapple, Peach Tea, 64 Oz",
-      "size": null,
-      "price": 3.49,
-      "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Veggie Straws, Sea Salt, 7 Oz",
+      "name": "Made Good Cookies & Creme Granola Bars, 6 Ct",
       "size": null,
       "price": 5.49,
       "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Mehadrin Yogurt Coffee, 7 Oz",
+      "name": "Amnon's Pizza 8 Slice Box, 36 Oz",
       "size": null,
-      "price": 1.99,
+      "price": 17.99,
       "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Kitchen Collect Clear Forks Deluxe, 50 Ct",
+      "name": "Near East Rice Pilaf Original, 6 Oz",
       "size": null,
-      "price": 2.99,
+      "price": 4,
       "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Pure Food Red Wine Sauce, 9.9 Oz",
+      "name": "Stacy's Pita Chips, Simply Naked, 1.5 Oz",
       "size": null,
-      "price": 6.49,
+      "price": 1.29,
       "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -545,55 +489,247 @@
       "size": null,
       "price": 2.99,
       "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Osem Bissli, Pizza, Family Pk, 1.23 Oz, 12 Ct",
+      "name": "Jet Foil 2.25 Lb Aluminum Pans With Lids, 10 Sets",
       "size": null,
-      "price": 7.99,
+      "price": 5.99,
       "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Sunset Flavor Bombs Tomatoes, 12 Oz",
+      "name": "Gefen Kettle Popped Corn Chips, 1 Oz",
       "size": null,
-      "price": 9.99,
+      "price": 1.49,
       "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Sonny & Joe's Matbucha Dip, 7 Oz",
+      "name": "Lieber's Rice Cake With Milk Chocolate, 3.1 Oz",
+      "size": null,
+      "price": 7,
+      "category": "Fruit",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "McCain 5 Minute Shoestring Fries, 20 Oz",
       "size": null,
       "price": 4.99,
       "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Chuster Sourdough Nuggets Fp, 12 Oz",
+      "name": "Poland Spring Water Bottle, Sports Cap, 23.7 Oz",
+      "size": null,
+      "price": 1.49,
+      "category": "Fruit",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Ronzoni Rigatoni Pasta # 27",
+      "size": null,
+      "price": 2.49,
+      "category": "Fruit",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Gefen Wonton Wraps Square, 12 Oz",
+      "size": null,
+      "price": 3.99,
+      "category": "Fruit",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Lieber's Lie Snack Crackers Salted, 10.3 Oz",
+      "size": null,
+      "price": 5.49,
+      "category": "Fruit",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Lieber's Rice Cakes w/ Sea Salt Thin, 3.1 Oz",
+      "size": null,
+      "price": 1.99,
+      "category": "Fruit",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Haolam American Cheese 12 Slice White, 8 Oz",
+      "size": null,
+      "price": 5.99,
+      "category": "Fruit",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Lior Sea Salt Fine Shaker, 17.6 Oz",
+      "size": null,
+      "price": 2.49,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Poland Spring Water, Gallon, 128 Oz",
+      "size": null,
+      "price": 2.99,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Paskesz Sour Sticks, Strawberry, 3.5 Oz",
+      "size": null,
+      "price": 2.99,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Nugo Dark Chocolate Pretzel 6 Pk, 1.7 Oz",
+      "size": null,
+      "price": 12.99,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Pos'tiv Romaine Lettuce, Pack",
+      "size": null,
+      "price": 8.99,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Seapoint Edamame Shelled Soybean Green, 12 Oz",
+      "size": null,
+      "price": 3.69,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Quakers Life, Original, 13 Oz",
+      "size": null,
+      "price": 5.99,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Dip Dip Crackers Original, 6 Oz",
+      "size": null,
+      "price": 5.49,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Manischewitz Tam Tams Everything, 9.6 Oz",
+      "size": null,
+      "price": 7,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Domino Sugar, 4 Lb",
+      "size": null,
+      "price": 3.99,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Sabra Guacamole Singles, 4 2 Oz Cups",
+      "size": null,
+      "price": 7.49,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Golden Fluff Snack Mix Original, 1 Oz",
+      "size": null,
+      "price": 0.79,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Gulden's Mustard, Spicy Brown, 12 Oz",
+      "size": null,
+      "price": 2.99,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Galil Pickles In Brine Large, 23 Oz",
+      "size": null,
+      "price": 2.49,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Pretzilla Mini Pretzel Burger Buns, 8.4 Oz",
       "size": null,
       "price": 7.99,
-      "category": "Fruit",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Coca Cola Zero Cans, 12 Pk",
+      "name": "Hellmann's Mayonnaise, Light, 30 Oz",
       "size": null,
-      "price": 11.99,
+      "price": 9.99,
       "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Paskesz Melba Toast, Original, 7 Oz",
+      "name": "Jet Foil Aluminum Pan X Deep 9X13, 2 Ct",
       "size": null,
-      "price": 11.98,
+      "price": 2.49,
       "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Snapple, Raspberry Tea, 64 Oz",
+      "size": null,
+      "price": 5,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Avocado Bag",
+      "size": null,
+      "price": 5.99,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Osem Soup Mix, Consomme, Chicken Style, 17.6 Oz",
+      "size": null,
+      "price": 18.98,
+      "category": "BBQ Essentials",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -601,167 +737,31 @@
       "size": null,
       "price": 8.49,
       "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Temp Tee Cream Cheese, 11.5 Oz",
+      "name": "Ocean Spray Cranberry Sauce, Jellied, 14 Oz",
       "size": null,
-      "price": 8.99,
+      "price": 7.98,
       "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Paskesz Ulta-Thin Multigrain Minis, 4.2 Oz",
+      "name": "A&H Beef Franks (Hot Dogs), 14 Oz",
       "size": null,
-      "price": 4.49,
+      "price": 10.49,
       "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "NuGo Dark Protein Bar, Peanut Butter Cup, 1.7 Oz",
+      "name": "Swt Baby Ray's Bbq Sauce Original, 18 Oz",
       "size": null,
-      "price": 2.29,
+      "price": 2.99,
       "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Herr's Tortilla Chips, Bite Size Dippers, 13 Oz",
-      "size": null,
-      "price": 6.99,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Duncan Hines Chewy Brownie Mix 18.3",
-      "size": null,
-      "price": 3.49,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Paskesz Haribo Cola Bottles Gummi Cand, 5.29 Oz",
-      "size": null,
-      "price": 4.29,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Dole Shredded Red Cabbage, 10 Oz",
-      "size": null,
-      "price": 3.99,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Bodek Iceberg Lettuce, 8 Oz",
-      "size": null,
-      "price": 7.49,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Polar Seltzer Raspberry Lime, 33.8 Oz",
-      "size": null,
-      "price": 4,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Goodman's Onion Soup Mix, 2.75 Oz",
-      "size": null,
-      "price": 3.98,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Haolam American Cheese 12 Slice White, 8 Oz",
-      "size": null,
-      "price": 11.98,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Snapple, Peach Tea, 64 Oz",
-      "size": null,
-      "price": 5,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Lieber's Real Chocolate Chips, Semi Sweet, 9 Oz",
-      "size": null,
-      "price": 4.99,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Pardes Broccoli Florets, 24 Oz",
-      "size": null,
-      "price": 7.99,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Coca Cola, Diet Caffeine Free, 2 Ltr",
-      "size": null,
-      "price": 15.96,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Coca Cola Diet, 2 Ltr",
-      "size": null,
-      "price": 15.96,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Lieber's Rice Cakes w/ Sea Salt Thin, 3.1 Oz",
-      "size": null,
-      "price": 1.99,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Holy Hummus Traditional Classic, 10 Oz",
-      "size": null,
-      "price": 9,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Jason Bread Crumbs, Flavored, 24 Oz",
-      "size": null,
-      "price": 5.99,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Golden Fluff Onion Rings Sm, 0.5 Oz",
-      "size": null,
-      "price": 0.79,
-      "category": "BBQ Essentials",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -769,7 +769,7 @@
       "size": null,
       "price": 4.99,
       "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -777,111 +777,39 @@
       "size": null,
       "price": 11.99,
       "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Hellmann's Mayonnaise Real, 30 Oz",
+      "name": "Coca Cola Zero Cans, 12 Pk",
       "size": null,
-      "price": 6.99,
+      "price": 9.99,
       "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Herr's Tortilla Chips, Bite Size Dippers, 13 Oz",
-      "size": null,
-      "price": 5.99,
-      "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Romaine Hearts Andy Boy 3ct",
+      "name": "Chuster Sourdough Nuggets Fp, 12 Oz",
       "size": null,
       "price": 5.99,
       "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Normans Whip Cream Cheese",
+      "name": "Norman's Vanilla Greek Yogurt, 6 Oz",
       "size": null,
-      "price": 4.99,
+      "price": 1.89,
       "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Starbucks Strbuck Alm/Oat Hazelnt La, 28 Oz",
+      "name": "Mehadrin Yogurt Coffee, 7 Oz",
       "size": null,
-      "price": 7.49,
+      "price": 1.79,
       "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Taster's Choice Coffee House Blend, 7 Oz",
-      "size": null,
-      "price": 13.99,
-      "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Amnon's Pizza 8 Slice Box, 36 Oz",
-      "size": null,
-      "price": 15.99,
-      "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "A&H Beef Salami, 14 Oz",
-      "size": null,
-      "price": 12.49,
-      "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Goodman's Onion Soup Mix, 2.75 Oz",
-      "size": null,
-      "price": 2.49,
-      "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Pas Yisroel Mezonos Pita, 5 Pk",
-      "size": null,
-      "price": 5.29,
-      "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Kedem Concord Grape Juice 64 Oz",
-      "size": null,
-      "price": 5.99,
-      "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Ronzoni Rigatoni Pasta # 27",
-      "size": null,
-      "price": 2.49,
-      "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Polar Strawberry Watermelon Seltzer, 1 Lt",
-      "size": null,
-      "price": 1.49,
-      "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -889,39 +817,31 @@
       "size": null,
       "price": 3.89,
       "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Sun Maid Mini Raisins Snacks, 6 Oz",
+      "name": "The Rebbe's Choice Flatbread Kichel",
       "size": null,
-      "price": 3.29,
+      "price": 8.69,
       "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Gold's Duck Sauce Sweet Sour 40 Oz",
+      "name": "Grey Poupon Mustard, Dijon, Squeeze, 10 Oz",
       "size": null,
-      "price": 5.49,
+      "price": 4.69,
       "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Haddar Tirosh Half Coated Biscuits, 7 Oz",
+      "name": "Herr's Potato Chips Hot Sauce, 1 Oz",
       "size": null,
-      "price": 2.49,
+      "price": 0.75,
       "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Holy Hummus Traditional Classic, 10 Oz",
-      "size": null,
-      "price": 3.49,
-      "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -929,7 +849,23 @@
       "size": null,
       "price": 3.49,
       "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Golden Flow Milk Red Regular, 64 Oz",
+      "size": null,
+      "price": 3.79,
+      "category": null,
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Jet Foil 9X13 Aluminum Pans, 10 Ct",
+      "size": null,
+      "price": 5.49,
+      "category": null,
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -937,15 +873,79 @@
       "size": null,
       "price": 2.99,
       "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Phillips Gourmet Mushrooms Baby Bella Mushrooms, 10 Oz",
+      "name": "Paskesz Milk Munch Bars, Mini, 8.8 Oz",
       "size": null,
-      "price": 3.99,
+      "price": 10.99,
       "category": null,
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Galil Rice Cakes Thin Gf Sea Salt, 3.5 Oz Kitniot",
+      "size": null,
+      "price": 1.29,
+      "category": null,
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Blue Diamond Almond Breeze Almond Milk, Original, Unsweetened, 32 Oz",
+      "size": null,
+      "price": 2.99,
+      "category": null,
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Polar Seltzer Raspberry Lime, 33.8 Oz",
+      "size": null,
+      "price": 1.49,
+      "category": null,
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Mehadrin Yo Smart Very Berry Yogurt, 3.5 Oz",
+      "size": null,
+      "price": 1.49,
+      "category": null,
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Gold's Duck Sauce Sweet Sour 40 Oz",
+      "size": null,
+      "price": 5.49,
+      "category": null,
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Romaine Hearts Andy Boy 3ct",
+      "size": null,
+      "price": 5.99,
+      "category": null,
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Bloom's Real Chocolate Chips, Semi Sweet, 10.5 Oz",
+      "size": null,
+      "price": 3.49,
+      "category": null,
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Aluminum Foil Pans 8\" Round Deep, 4 Pk",
+      "size": null,
+      "price": 2.29,
+      "category": null,
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -953,15 +953,7 @@
       "size": null,
       "price": 4.99,
       "category": "Flowers",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Beetology Organic Beets, 17.6 Oz",
-      "size": null,
-      "price": 3.49,
-      "category": "Fresh Organic Vegetables",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -969,7 +961,15 @@
       "size": null,
       "price": 4.99,
       "category": "Fresh Organic Vegetables",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Beetology Organic Beets, 17.6 Oz",
+      "size": null,
+      "price": 3.49,
+      "category": "Fresh Organic Vegetables",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -977,7 +977,7 @@
       "size": null,
       "price": 3.49,
       "category": "Fresh Organic Vegetables",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -985,7 +985,7 @@
       "size": null,
       "price": 7.99,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -993,7 +993,7 @@
       "size": null,
       "price": 7.99,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -1001,7 +1001,7 @@
       "size": null,
       "price": 8,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -1009,7 +1009,7 @@
       "size": null,
       "price": 6.99,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -1017,7 +1017,7 @@
       "size": null,
       "price": 6.99,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -1025,7 +1025,7 @@
       "size": null,
       "price": 7,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -1033,7 +1033,7 @@
       "size": null,
       "price": 3,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -1041,7 +1041,15 @@
       "size": null,
       "price": 9,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Fleishigs Magazine Yom Tov",
+      "size": null,
+      "price": 9.99,
+      "category": "Media",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -1049,7 +1057,7 @@
       "size": null,
       "price": 13.99,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -1057,7 +1065,7 @@
       "size": null,
       "price": 21.99,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -1065,7 +1073,7 @@
       "size": null,
       "price": 43.99,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -1073,7 +1081,7 @@
       "size": null,
       "price": 12.99,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -1081,7 +1089,7 @@
       "size": null,
       "price": 7.99,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -1089,7 +1097,7 @@
       "size": null,
       "price": 17.99,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -1097,7 +1105,7 @@
       "size": null,
       "price": 14.99,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -1105,191 +1113,183 @@
       "size": null,
       "price": 8.99,
       "category": "Media",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Wesson Canola Oil, 40 Oz Aisle 2 Left Front ADD ADD NOTE",
-      "size": null,
-      "price": 4.69,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Pas Yisroel Frankfurter Hotdog Buns 8 Pk, 12 Oz",
-      "size": null,
-      "price": 5.99,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Haolam Shredded Mozzarella Cheese, 2 Lbs",
-      "size": null,
-      "price": 13.99,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Giorgio Mushroom White Package 8Oz, 1 Ct",
-      "size": null,
-      "price": 4.99,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Klik Milk Chocolate Balls, 1.06 Oz",
-      "size": null,
-      "price": 1.99,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Lieber's Snackers, Salted, 13.7 Oz",
-      "size": null,
-      "price": 3.99,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Lieber's Honey Graham Crackers, 16 Oz",
-      "size": null,
-      "price": 4.49,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Auerpak Potato Baby Yukon Gold 28 Oz",
-      "size": null,
-      "price": 7.99,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Tropicana No Plup, 46 Oz",
-      "size": null,
-      "price": 4.99,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Fresca, 2 Ltr",
-      "size": null,
-      "price": 2.99,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "B&B Cracker Crisps Sour Cream & Onion, 10 Oz",
-      "size": null,
-      "price": 4.99,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Kedem Grape Juice, Light Concord, 64 Oz",
-      "size": null,
-      "price": 6.99,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Kosherific 48 Fish Sticks, 25 Oz",
-      "size": null,
-      "price": 9.99,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Wise Dipsy Doodles Chips",
-      "size": null,
-      "price": 0.5,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Pro Grade Gloves Latex Powder Free Medium, 100 Ct",
-      "size": null,
-      "price": 6.99,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Golden Fluff Tortilla Chips, Bbq, 1 Oz",
-      "size": null,
-      "price": 0.69,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Lundberg Sushi Rice, White, 32 Oz",
-      "size": null,
-      "price": 8.49,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Haolam Sliced Muenster Cheese, 6 Oz",
+      "name": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz Deli Back Wall ADD ADD NOTE",
       "size": null,
       "price": 3.49,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Achva Sesame Tahini, 16 Oz",
+      "name": "Simcha Collection Clear Plastic Tumblers 10 Oz, 16 Ct",
       "size": null,
-      "price": 5.69,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "price": 1.99,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Mazor's Mini Pizza Dough, 24 Pk",
+      "name": "Chosen Foods Avocado Oil Spray, 4.7 Oz",
       "size": null,
-      "price": 4.99,
-      "category": "Wesson Canola Oil, 40 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "price": 8.49,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Med Life 7Inch Plastic Plates Aisle 9 Left Front ADD ADD NOTE",
+      "name": "Starbucks Strbuck Alm/Oat Hazelnt La, 28 Oz",
       "size": null,
-      "price": 2.99,
-      "category": "Med Life 7Inch Plastic Plates",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "price": 7.49,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Unger Chick Peas, 16 Oz Aisle 3 Right Back ADD ADD NOTE",
+      "name": "Gefen Crushed Garlic Cubes, 2.8 Oz",
       "size": null,
-      "price": 1.49,
-      "category": "Unger Chick Peas, 16 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "price": 3.69,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Dove Body Wash W/Pmp Deep Moisture, 30.6 Oz Aisle 8 Right Middle ADD ADD NOTE",
+      "name": "Sabra Classic Hummus Singles",
       "size": null,
-      "price": 9.99,
-      "category": "Dove Body Wash W/Pmp Deep Moisture, 30.6 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "price": 7.69,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Osem Bamba Peanut Snack, With Hazelnut Cream Filling, 2.1 Oz, ,",
+      "size": null,
+      "price": 2.29,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Bertolli Olive Oil, Extra Virgin, 25 Oz",
+      "size": null,
+      "price": 21.99,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Grape Tomatoes, 10 Oz",
+      "size": null,
+      "price": 3.99,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Haolam Shredded Cheddar Cheese, 8 Oz",
+      "size": null,
+      "price": 4.69,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Liebers Crispy Goodies Bbq 1Oz",
+      "size": null,
+      "price": 0.49,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Normans Greek Light Yogurt 100 Calories Lotus Cookie, 5.3 Oz",
+      "size": null,
+      "price": 1.79,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Nita's Nicest Mushrooms Gourmet 10Oz, 10 Oz",
+      "size": null,
+      "price": 3.99,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Reisman's Chocolate Danish, 8 Pack, 10 Oz",
+      "size": null,
+      "price": 8.99,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Glicks Chickpeas, 14 Oz",
+      "size": null,
+      "price": 0.99,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Paskesz Encore Chocolate Bars, Mini, Bag, 9.1 Oz",
+      "size": null,
+      "price": 10.99,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Landau Wrap 'n Boil Bags, 8 Ct",
+      "size": null,
+      "price": 2.69,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Verdini Fresh Dill",
+      "size": null,
+      "price": 6.99,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Gefen Whole Hearts Of Palm, 14.1 Oz",
+      "size": null,
+      "price": 3.29,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Givat Yogolite Coffee, 5 Oz",
+      "size": null,
+      "price": 0.79,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "J&J Cottage Cheese Whipped, 16 Oz",
+      "size": null,
+      "price": 6.29,
+      "category": "Holy Hummus Mediterranean Za'atar Oil, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Old Williamsburg Jumbo Gherkins, 57.48 Oz Aisle 3 Left Back ADD ADD NOTE",
+      "size": null,
+      "price": 5.99,
+      "category": "Old Williamsburg Jumbo Gherkins, 57.48 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
@@ -1297,127 +1297,135 @@
       "size": null,
       "price": 6.99,
       "category": "Jonny Pops Unicorn Twist, 6.72 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Beleaves Mixed Green Lettuce Vegetables ADD ADD NOTE",
-      "size": null,
-      "price": 5.99,
-      "category": "Beleaves Mixed Green Lettuce",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Perfection Plastic Cups 7 Oz, 100 Ct Aisle 9 Left Front ADD ADD NOTE",
-      "size": null,
-      "price": 1.29,
-      "category": "Perfection Plastic Cups 7 Oz, 100 Ct",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Fruit Riot Sour Pineapple Sour Patch, 8 Oz Aisle 5 Left Front ADD ADD NOTE",
-      "size": null,
-      "price": 6.99,
-      "category": "Fruit Riot Sour Pineapple Sour Patch, 8 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Mary's Gone Crackers Super Seed Everything, 4 Oz Aisle 4 Right Front ADD ADD NOTE",
-      "size": null,
-      "price": 3.99,
-      "category": "Mary's Gone Crackers Super Seed Everything, 4 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Lieber's Mini Marshmallows White, 5 Oz Aisle 6 Middle ADD ADD NOTE",
-      "size": null,
-      "price": 1.49,
-      "category": "Lieber's Mini Marshmallows White, 5 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Green Giant White Corn Super Sweet, 11 Oz Aisle 3 Left Middle ADD ADD NOTE",
+      "name": "Turkey Hill Mango Lemonade, 64 Oz Back Wall Right ADD ADD NOTE",
       "size": null,
       "price": 2.49,
-      "category": "Green Giant White Corn Super Sweet, 11 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "category": "Turkey Hill Mango Lemonade, 64 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Blooms Snackers, 13.7 Lb Aisle 4 Right Front ADD ADD NOTE",
+      "name": "Lieber's Classic Marinara Pasta Sauce, 24 Oz Aisle 3 Right Middle ADD ADD NOTE",
       "size": null,
-      "price": 3.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "price": 2.69,
+      "category": "Lieber's Classic Marinara Pasta Sauce, 24 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Single item:",
+      "name": "Twizzlers Filled Twists Raspberry 1, 11 Oz Aisle 6 Middle ADD ADD NOTE",
       "size": null,
-      "price": 2.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "price": 4.99,
+      "category": "Twizzlers Filled Twists Raspberry 1, 11 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Case of 12:",
+      "name": "Abraham's Beef Jerky Teriyaki, 4 Oz Registers ADD ADD NOTE",
       "size": null,
-      "price": 34.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "price": 15.99,
+      "category": "Abraham's Beef Jerky Teriyaki, 4 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Kelloggs Froot Loops, 8.9 Oz Aisle 1 Right Front ADD ADD NOTE",
+      "name": "Wondermill White Spelt Flour, 5 Lb Aisle 2 Left Front ADD ADD NOTE",
       "size": null,
-      "price": 5.49,
-      "category": "Kelloggs Froot Loops, 8.9 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "price": 16.99,
+      "category": "Wondermill White Spelt Flour, 5 Lb",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     },
     {
       "store": "Seasons",
-      "name": "Keizer Salt 7 Pepper Flat Crax, 6 Oz Aisle 4 Right Front ADD ADD NOTE",
-      "size": null,
-      "price": 2.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Keizer Everthing Flat Crax, 6 Oz Aisle 4 Right Front ADD ADD NOTE",
-      "size": null,
-      "price": 2.99,
-      "category": "Keizer Everthing Flat Crax, 6 Oz",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Ziploc Freezer Quart Bag, 24 Ct Aisle 9 Right Back ADD ADD NOTE",
-      "size": null,
-      "price": 4.49,
-      "category": "Ziploc Freezer Quart Bag, 24 Ct",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Marys Gon Mary's Gone Super Seed Jalapeno Cracker, 4 Oz Aisle 4 Right Front ADD ADD NOTE",
-      "size": null,
-      "price": 3.99,
-      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
-    },
-    {
-      "store": "Seasons",
-      "name": "Jonny Pops Red White & Boom, 8 Ct Seasonal ADD ADD NOTE",
+      "name": "Fruit Riot Crunchy Candy Red White Blueb, 8 Oz Aisle 6 Middle ADD ADD NOTE",
       "size": null,
       "price": 6.99,
-      "category": "Jonny Pops Red White & Boom, 8 Ct",
-      "scrapedAt": "2026-08-10T18:57:31.859Z"
+      "category": "SeasonsKosher.com Online Kosher Grocery Shopping and Delivery Service",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Liebers Avocado Oil, 48 Oz Aisle 2 Left Front ADD ADD NOTE",
+      "size": null,
+      "price": 14.99,
+      "category": "Liebers Avocado Oil, 48 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Gefen Ramen Toppers Onion Garlic, 10 Oz Aisle 2 Right Back ADD ADD NOTE",
+      "size": null,
+      "price": 3.69,
+      "category": "Gefen Ramen Toppers Onion Garlic, 10 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Sugar Party Mixed Berries Gummy Clusters, 12 Ct Aisle 6 Middle ADD ADD NOTE",
+      "size": null,
+      "price": 4.99,
+      "category": "Sugar Party Mixed Berries Gummy Clusters, 12 Ct",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Arm&Hammer A&H Liquid Oxi Clean, 45 Oz Aisle 8 Left Middle ADD ADD NOTE",
+      "size": null,
+      "price": 6.99,
+      "category": "Arm&Hammer A&H Liquid Oxi Clean, 45 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Cookie Bites Cookie Bite Chocolate Chip Cookies, 1.5 Oz Aisle 4 Left Middle ADD ADD NOTE",
+      "size": null,
+      "price": 0.99,
+      "category": "Cookie Bites Cookie Bite Chocolate Chip Cookies, 1.5 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Best Bev Hotcups Coffee Print 50 Ct Aisle 9 Left Front ADD ADD NOTE",
+      "size": null,
+      "price": 2.99,
+      "category": "Best Bev Hotcups Coffee Print 50 Ct",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Lieber Lie Baking Chips Choco, 9 Oz Aisle 2 Left Middle ADD ADD NOTE",
+      "size": null,
+      "price": 2.99,
+      "category": "Lieber Lie Baking Chips Choco, 9 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Head&Shoulder Head & Shoulder Dry Scalp 2In1, 28.2 Oz Aisle 8 Right Middle ADD ADD NOTE",
+      "size": null,
+      "price": 10.99,
+      "category": "Head&Shoulder Head & Shoulder Dry Scalp 2In1, 28.2 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Mr Clean X2 Lemon, 64 Oz Aisle 8 Left Middle ADD ADD NOTE",
+      "size": null,
+      "price": 9.99,
+      "category": "Mr Clean X2 Lemon, 64 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
+    },
+    {
+      "store": "Seasons",
+      "name": "Beleaves Medjool Dates Jumbo Whole, 12 Oz Produce Front ADD ADD NOTE",
+      "size": null,
+      "price": 6.99,
+      "category": "Beleaves Medjool Dates Jumbo Whole, 12 Oz",
+      "scrapedAt": "2026-08-11T10:42:27.073Z"
     }
   ]
 }

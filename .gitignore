@@ -1,0 +1,5 @@
+node_modules/
+# Persistent browser profile used to hold the Gourmet Glatt bot-check clearance and
+# selected-store cookies between runs. Machine-local, never committed.
+.gg-profile/
+.npgs-profile/

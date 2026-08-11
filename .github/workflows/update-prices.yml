@@ -2,7 +2,10 @@ name: Update grocery prices
 
 on:
   schedule:
-    - cron: '0 10 * * *'
+    # Twice a month (1st and 15th, 10:00 UTC). Cron has no real "every 2 weeks", and
+    # this is the closest honest approximation. A full pass over three stores is a
+    # few hours, so a daily run was far more crawling than the data needs.
+    - cron: '0 10 1,15 * *'
   workflow_dispatch:
 
 permissions:
@@ -23,11 +26,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install Chromium for Playwright
-        run: npx playwright install --with-deps chromium
+      # Seasons runs fine on the bundled Chromium. Gourmet Glatt sits behind a bot check
+      # that rejects Playwright's headless shell, so it needs real Chrome (channel:'chrome').
+      - name: Install browsers for Playwright
+        run: npx playwright install --with-deps chromium chrome
 
+      # Gourmet Glatt runs headed, which needs a display on a headless runner.
+      # If it gets challenged here anyway, scrape.js carries forward its previous
+      # records rather than publishing an empty store.
       - name: Run scrapers
-        run: npm run scrape
+        run: xvfb-run -a npm run scrape
 
       - name: Commit updated prices
         run: |

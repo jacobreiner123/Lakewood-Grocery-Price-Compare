@@ -20,7 +20,14 @@ const ONLY = process.env.ONLY ? process.env.ONLY.split(',').map(s => s.trim()).f
 // NOTE: match the featured strip's own container exactly. A loose [class*="carousel"]
 // excludes everything — Seasons wraps each individual card in its own .item-carousel div,
 // so the greedy selector zeroed out the whole grid.
-const extractGrid = (page, cardSel, carouselSel) => page.evaluate(({ cardSel, carouselSel }) => {
+// Brand and size are captured as their own fields, not left inside the name. The two
+// platforms disagree about where that information lives: Seasons bakes it into the name
+// ("Liebers Avocado Oil, 48 Oz") while SelfPoint keeps .brand and .weight as separate
+// elements and leaves the name bare ("Avocado Oil"). Storing them apart is what makes
+// the same product comparable across stores — without it there is nothing to match on.
+const extractGrid = (page, cardSel, carouselSel, brandSel, sizeSel) => page.evaluate(({ cardSel, carouselSel, brandSel, sizeSel }) => {
+  const clean = t => (t || '').replace(/[|\n]+/g, ' ').replace(/\s+/g, ' ').trim();
+  const SIZE_RE = /(\d+(?:\.\d+)?)\s*(oz|fl\s?oz|lbs?|ct|pk|qt|gal|ml|l|g|kg|inch|in)\b\.?/i;
   const inCarousel = new Set();
   for (const c of document.querySelectorAll(carouselSel))
     for (const el of c.querySelectorAll(cardSel)) inCarousel.add(el);
@@ -39,13 +46,26 @@ const extractGrid = (page, cardSel, carouselSel) => page.evaluate(({ cardSel, ca
     if (!name) { const l = txt.split('\n').map(s => s.trim()).find(s => s && !/^\$?\d/.test(s)); if (l) name = l; }
     name = name.replace(/\$\s?\d+(?:\.\d{1,2})?/g, '').replace(/\s+/g, ' ').trim();
     if (name.length < 3) continue;
-    const key = name.toLowerCase() + '|' + price;
+
+    let brand = brandSel ? clean((el.querySelector(brandSel) || {}).innerText) : null;
+    let size = sizeSel ? clean((el.querySelector(sizeSel) || {}).innerText) : null;
+
+    // Seasons has no brand/size elements: the name is "Brand Product, Size". Split the
+    // trailing size off so the name is comparable to SelfPoint's bare product name.
+    if (!size) {
+      const tail = name.match(/,\s*([^,]*\d[^,]*)$/);
+      if (tail && SIZE_RE.test(tail[1])) { size = clean(tail[1]); name = name.slice(0, tail.index).trim(); }
+      else { const m = name.match(SIZE_RE); if (m) size = clean(m[0]); }
+    }
+    if (size) { const m = size.match(SIZE_RE); size = m ? `${m[1]} ${m[2].toLowerCase().replace(/\s+/g, '')}` : null; }
+
+    const key = name.toLowerCase() + '|' + (brand || '').toLowerCase() + '|' + (size || '') + '|' + price;
     if (seen.has(key)) continue;
     seen.add(key);
-    out.push({ name, price });
+    out.push({ name, brand: brand || null, size: size || null, price });
   }
   return out;
-}, { cardSel, carouselSel });
+}, { cardSel, carouselSel, brandSel, sizeSel });
 
 const STOP = new Set(['featured products','specials','weekly specials','new items','meat','dairy','produce','bakery','grocery','frozen','deli','fish','appetizing','health & beauty','household','beverages','snacks','candy','wine & liquor','pharmacy','departments','shop by department','categories','featured','all products','products','view all','see all','shop now','add to cart','out of stock']);
 const junk = s => { const n=(s||'').trim(); return n.length<3||n.length>90||STOP.has(n.toLowerCase())||!/[a-z]/.test(n)||/^\$?\d/.test(n); };
@@ -89,6 +109,8 @@ const STORES = [
     // category header, which then picked up a neighbouring price — "Eng :: $4.99".
     cardSel: '.product-item',
     carouselSel: '.sp-carousel',
+    brandSel: '.brand',
+    sizeSel: '.weight',
     // SelfPoint sits behind Cloudflare. Playwright's bundled chromium-headless-shell is
     // fingerprinted and gets an endless interstitial; real Chrome clears it in seconds.
     channel: 'chrome',
@@ -116,6 +138,8 @@ const STORES = [
     home: 'https://www.gonpgs.com/',
     cardSel: '.product-item',
     carouselSel: '.sp-carousel',
+    brandSel: '.brand',
+    sizeSel: '.weight',
     channel: 'chrome',
     headed: true,
     profileDir: process.env.NPGS_PROFILE || path.join(__dirname, '.npgs-profile'),
@@ -161,10 +185,13 @@ async function crawlStore(handle, cfg) {
   const page = ctx.pages()[0] || await ctx.newPage();
   const byKey = new Map(), now = new Date().toISOString();
   let cat = null;
-  const add = (name, price) => {
-    if (junk(name)) return;
-    const k = name.toLowerCase() + '|' + price;
-    if (!byKey.has(k)) byKey.set(k, { store: cfg.name, name, size: null, price, category: cat, scrapedAt: now });
+  const add = (it) => {
+    if (junk(it.name)) return;
+    const k = it.name.toLowerCase() + '|' + (it.brand || '').toLowerCase() + '|' + (it.size || '') + '|' + it.price;
+    if (!byKey.has(k)) byKey.set(k, {
+      store: cfg.name, name: it.name, brand: it.brand || null, size: it.size || null,
+      price: it.price, category: cat, scrapedAt: now,
+    });
   };
 
   // Wait past any bot interstitial, then past hydration, then scroll for lazy loads.
@@ -198,8 +225,8 @@ async function crawlStore(handle, cfg) {
     } catch { return; } // genuinely empty category
     let stag = 0, lastCount = -1;
     for (let i = 0; i < MAX_SCROLLS && stag < 2; i++) {
-      const items = await extractGrid(page, cfg.cardSel, cfg.carouselSel).catch(() => []);
-      for (const it of items) add(it.name, it.price);
+      const items = await extractGrid(page, cfg.cardSel, cfg.carouselSel, cfg.brandSel, cfg.sizeSel).catch(() => []);
+      for (const it of items) add(it);
       // Per-page stagnation. Measured against the global set it also stopped early on
       // any category whose items had all been seen on an earlier page.
       if (items.length === lastCount) stag++; else stag = 0;
@@ -248,7 +275,44 @@ async function crawlStore(handle, cfg) {
   return recs;
 }
 
+// The previous run's data, read ONCE before anything is written. Checkpoints overwrite
+// prices.json mid-run, so re-reading it later would carry forward this run's own
+// partial output instead of the last complete one.
+let PREV = null;
+
+// Carry forward the previous run's records for any store that produced nothing this
+// time. A store can fail for reasons unrelated to its data being stale — the scheduled
+// Action runs from datacenter IPs that a bot check is far likelier to challenge than a
+// home connection — and a failed store must not silently erase prices already published
+// for it. Also covers ONLY= runs and mid-run checkpoints, which touch a subset by design.
+function writeOut(all, outFile, { checkpoint }) {
+  let out = all;
+  if (PREV && Array.isArray(PREV.products)) {
+    const got = new Set(all.map(r => r.store));
+    const carried = PREV.products.filter(r => !got.has(r.store));
+    if (!checkpoint) {
+      const tally = {}; carried.forEach(r => tally[r.store] = (tally[r.store] || 0) + 1);
+      for (const [s, n] of Object.entries(tally))
+        console.log(`WARNING: ${s} returned 0 products this run — carrying forward ${n} records from ${PREV.updatedAt}`);
+    }
+    out = all.concat(carried);
+  }
+  fs.writeFileSync(outFile, JSON.stringify({
+    updatedAt: new Date().toISOString(),
+    storeCount: new Set(out.map(r => r.store)).size,
+    productCount: out.length,
+    products: out,
+  }, null, 2));
+  const bs = {}; out.forEach(r => bs[r.store] = (bs[r.store] || 0) + 1);
+  if (checkpoint) console.log(`  [checkpoint] data/prices.json — ${out.length} products ${JSON.stringify(bs)}`);
+  else { console.log(`\nWrote data/prices.json — ${out.length} products`); console.log('Per store:', JSON.stringify(bs)); }
+}
+
 (async () => {
+  const outDir = path.join(__dirname, 'data'); fs.mkdirSync(outDir, { recursive: true });
+  const outFile = path.join(outDir, 'prices.json');
+  try { PREV = JSON.parse(fs.readFileSync(outFile, 'utf8')); } catch {}
+
   let all = [];
   for (const cfg of STORES) {
     if (cfg.enabled === false) { console.log(`[${cfg.name}] skipped (disabled)`); continue; }
@@ -259,33 +323,11 @@ async function crawlStore(handle, cfg) {
       all = all.concat(await crawlStore(handle, cfg));
     } catch (e) { console.error(`${cfg.name} failed:`, e.message.split('\n')[0]); }
     finally { if (handle) await handle.close().catch(() => {}); }
-  }
-  const outDir = path.join(__dirname, 'data'); fs.mkdirSync(outDir, { recursive: true });
-  const outFile = path.join(outDir, 'prices.json');
-
-  // Carry forward the previous run's records for any store that produced nothing this
-  // time. A store can fail for reasons unrelated to its data being stale — the scheduled
-  // Action runs from datacenter IPs that a bot check is far likelier to challenge than a
-  // home connection — and a failed store must not silently erase prices already
-  // published for it. Also covers ONLY= runs, which touch a single store by design.
-  let prev = null;
-  try { prev = JSON.parse(fs.readFileSync(outFile, 'utf8')); } catch {}
-  if (prev && Array.isArray(prev.products)) {
-    const got = new Set(all.map(r => r.store));
-    const carried = prev.products.filter(r => !got.has(r.store));
-    const tally = {}; carried.forEach(r => tally[r.store] = (tally[r.store] || 0) + 1);
-    for (const [s, n] of Object.entries(tally))
-      console.log(`WARNING: ${s} returned 0 products this run — carrying forward ${n} records from ${prev.updatedAt}`);
-    all = all.concat(carried);
+    // Checkpoint after every store. A full pass is hours long; writing only at the
+    // end meant a crash or a bot-check lockout late in the run discarded every
+    // store that had already succeeded.
+    writeOut(all, outFile, { checkpoint: true });
   }
 
-  fs.writeFileSync(outFile, JSON.stringify({
-    updatedAt: new Date().toISOString(),
-    storeCount: new Set(all.map(r => r.store)).size,
-    productCount: all.length,
-    products: all,
-  }, null, 2));
-  const bs = {}; all.forEach(r => bs[r.store] = (bs[r.store] || 0) + 1);
-  console.log(`\nWrote data/prices.json — ${all.length} products`);
-  console.log('Per store:', JSON.stringify(bs));
+  writeOut(all, outFile, { checkpoint: false });
 })().catch(e => { console.error('FATAL', e); process.exit(1); });

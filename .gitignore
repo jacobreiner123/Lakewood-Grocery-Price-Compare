@@ -3,3 +3,7 @@ node_modules/
 # selected-store cookies between runs. Machine-local, never committed.
 .gg-profile/
 .npgs-profile/
+
+# Transient batch-submission state. data/match-cache.json holds the durable
+# decisions and IS committed — that's what makes matching a one-time cost.
+data/match-batch.json

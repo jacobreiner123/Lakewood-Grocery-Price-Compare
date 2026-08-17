@@ -282,7 +282,10 @@ function rebuild() {
       if (prices[p.store] == null || p.price < prices[p.store]) prices[p.store] = p.price;
     }
     if (Object.keys(prices).length < 2) { dropped++; continue; }
-    items.push({ name: anchor.name, brand: anchor.brand, size: anchor.size, confidence: d.confidence, prices });
+    // Emit the consumed record keys so the web app can group by these verified
+    // matches and fall back to its own heuristic only for what's left over.
+    const keys = [anchorKey, ...d.matchedKeys.filter(k => index.has(k))];
+    items.push({ name: anchor.name, brand: anchor.brand, size: anchor.size, confidence: d.confidence, prices, keys });
   }
 
   fs.writeFileSync(path.join(DATA, 'matches.json'), JSON.stringify({

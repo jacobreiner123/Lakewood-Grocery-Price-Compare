@@ -53,6 +53,9 @@
   .pr .amt{font-weight:650;font-variant-numeric:tabular-nums}
   .pr.best .amt{color:var(--accent)}
   .best-tag{font-size:9.5px;background:var(--accent);color:#fff;border-radius:5px;padding:1px 5px;margin-left:6px;font-weight:700}
+  /* Marks a comparison confirmed to be the same product across stores, rather than
+     one inferred from similar-looking names. */
+  .vtag{font-size:9px;background:rgba(0,0,0,.07);color:var(--muted);border-radius:5px;padding:1px 5px;margin-left:6px;font-weight:600;vertical-align:middle;letter-spacing:.02em}
   .empty{text-align:center;color:var(--muted);padding:50px 20px;font-size:14px;line-height:1.6}
   .cart{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--surface);border-top:1px solid var(--line);
     box-shadow:0 -3px 16px rgba(0,0,0,.25);padding:12px 16px calc(12px + env(safe-area-inset-bottom));
@@ -111,13 +114,31 @@
 let STORES=[], ITEMS=[], activeStores=new Set(), query="";
 const cart=new Map();
 
-// group a flat product list into comparable items keyed by a normalized name
+// Fallback grouping for products with no verified match — mostly items only one
+// store carries. Sorting the words makes "Large Eggs Dozen" and "Eggs Large Dozen"
+// collide, which is approximate on purpose: it can't tell Gefen mayo from Liebers
+// mayo, so it is never used where a verified match exists.
 function normKey(name,size){
   const cleaned=(name+' '+(size||'')).toLowerCase()
     .replace(/[^a-z0-9 ]/g,'').replace(/\b(oz|lb|lbs|gal|ct|pk|pack|each|dozen|gallon|count|the|a)\b/g,'')
     .replace(/\s+/g,' ').trim();
-  // sort words so "Large Eggs Dozen" and "Eggs Large Dozen" match
   return cleaned.split(' ').filter(Boolean).sort().join(' ');
+}
+
+// Must match the key format match.js writes into matches.json.
+function recKey(p){
+  const norm=s=>String(s||'').toLowerCase().replace(/[’'`]/g,'').replace(/&/g,' and ')
+    .replace(/[^a-z0-9. ]+/g,' ').replace(/\s+/g,' ').trim();
+  const m=String(p.size||'').trim().match(/^(\d+(?:\.\d+)?)\s*(oz|fl ?oz|lbs?|ct|pk|qt|gal|ml|l|g|kg)$/i);
+  let sz=norm(p.size);
+  if(m){
+    let n=parseFloat(m[1]);const u=m[2].toLowerCase().replace(/\s/g,'');
+    if(u==='lb'||u==='lbs'){n*=16;sz=n+'oz';}
+    else if(u==='kg'){n*=1000;sz=n+'g';}
+    else if(u==='l'){n*=1000;sz=n+'ml';}
+    else sz=n+(u==='floz'?'oz':u);
+  }
+  return `${p.store}|${norm(p.brand)}|${norm(p.name)}|${sz}`;
 }
 
 async function load(){
@@ -134,16 +155,31 @@ async function load(){
     document.getElementById('list').innerHTML='<div class="empty">No prices captured yet.<br>Run the <b>“Update grocery prices”</b> action on GitHub to pull the first batch.</div>';
     renderMeta(data);return;
   }
-  // build items
+  // Verified cross-store matches take precedence. These were adjudicated per product
+  // (same brand, item and pack size), so they carry real comparisons; the word-sort
+  // heuristic below only ever handles what's left.
+  let matched=[],consumed=new Set();
+  try{
+    const mr=await fetch('data/matches.json?_='+Date.now());
+    const md=await mr.json();
+    for(const it of (md.items||[])){
+      if(it.confidence==='low') continue; // too uncertain to show as a price comparison
+      matched.push({name:it.name,size:it.size,brand:it.brand,cat:'',prices:it.prices,verified:true});
+      for(const k of (it.keys||[])) consumed.add(k);
+    }
+  }catch(e){ /* no matches file yet — fall back to heuristic grouping alone */ }
+
+  // Everything not part of a verified match, grouped approximately so it stays searchable.
   const map=new Map();
   for(const p of products){
+    if(consumed.has(recKey(p))) continue;
     const k=normKey(p.name,p.size);
     if(!map.has(k)) map.set(k,{name:p.name,size:p.size,cat:p.category||'',prices:{}});
     const it=map.get(k);
     // keep lowest price seen per store for this item
     if(it.prices[p.store]==null||p.price<it.prices[p.store]) it.prices[p.store]=p.price;
   }
-  ITEMS=[...map.values()].sort((a,b)=>a.name.localeCompare(b.name));
+  ITEMS=matched.concat([...map.values()]).sort((a,b)=>a.name.localeCompare(b.name));
   STORES=[...new Set(products.map(p=>p.store))].sort();
   activeStores=new Set(STORES);
   renderMeta(data);renderChips();render();renderCart();
@@ -152,7 +188,9 @@ async function load(){
 function renderMeta(data){
   const el=document.getElementById('meta');
   const when=data&&data.updatedAt?new Date(data.updatedAt).toLocaleString([], {month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):'—';
-  el.innerHTML=`<span class="dot"></span> Updated ${when} &middot; ${STORES.length} store${STORES.length!==1?'s':''} &middot; ${ITEMS.length} items`;
+  const verified=ITEMS.filter(i=>i.verified).length;
+  el.innerHTML=`<span class="dot"></span> Updated ${when} &middot; ${STORES.length} store${STORES.length!==1?'s':''} &middot; ${ITEMS.length} items`
+    +(verified?` &middot; <b>${verified}</b> verified matches`:'');
 }
 
 function renderChips(){
@@ -193,7 +231,8 @@ function render(){
       const isBest=multi&&b&&p===b.price&&s===b.store;
       return `<div class="pr${isBest?' best':''}"><span class="store">${s}${isBest?'<span class="best-tag">LOW</span>':''}</span><span class="amt">$${p.toFixed(2)}</span></div>`;
     }).join('');
-    card.innerHTML=`<div class="card-top"><div><p class="item-name">${it.name}</p>${it.size?`<div class="item-size">${it.size}</div>`:''}</div>
+    const sub=[it.brand,it.size].filter(Boolean).join(' · ');
+    card.innerHTML=`<div class="card-top"><div><p class="item-name">${it.name}${it.verified?'<span class="vtag" title="Same product confirmed across stores">matched</span>':''}</p>${sub?`<div class="item-size">${sub}</div>`:''}</div>
       <button class="add-btn${cart.has(i)?' in':''}" data-i="${i}">${cart.has(i)?'✓':'+'}</button></div>
       <div class="prices${multi?'':' single'}">${prHtml}</div>`;
     card.querySelector('.add-btn').onclick=e=>{e.stopPropagation();toggleCart(i);};

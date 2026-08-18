@@ -234,6 +234,31 @@ const STORES = [
       return raw.filter(r => r.name && r.price > 0);
     },
   },
+  {
+    // Evergreen runs three stores — Monsey NY, Uptown Brooklyn, and Lakewood (945 River
+    // Ave). The shop shows no branch, offers no store switcher and sets no store cookie,
+    // and their own copy says orders are collected at "one of our three superstores",
+    // which reads like one shared catalogue. Whether these are Lakewood's shelf prices
+    // is therefore UNVERIFIED, and the market says so — grouping by market keeps it out
+    // of the strict Lakewood basket rather than quietly inflating it, the way Gourmet
+    // Glatt's Cedarhurst default and Seasons' Lawrence/Queens links once did.
+    // If the branches turn out to share one price list, retag this to 'Lakewood'.
+    name: 'Evergreen',
+    market: 'Lakewood (unverified branch)',
+    enabled: true,
+    home: 'https://www.shopevergreenkosher.com/',
+    cardSel: '.product-item',
+    carouselSel: '.sp-carousel',
+    brandSel: '.brand',
+    sizeSel: '.weight',
+    channel: 'chrome',
+    headed: true,
+    profileDir: process.env.EG_PROFILE || path.join(__dirname, '.eg-profile'),
+    async categories(page) {
+      const hrefs = await page.$$eval('a[href]', as => [...new Set(as.map(a => a.href))]);
+      return hrefs.filter(u => /\/categories\/\d+/i.test(u)).map(u => ({ url: u, name: null }));
+    },
+  },
 ];
 
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';

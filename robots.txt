@@ -1,0 +1,7 @@
+# This site republishes six kosher grocers' catalogues and prices side by side.
+# It stays reachable for anyone with the link, but is kept out of search results:
+# stores finding their prices indexed next to competitors' is the most likely way
+# this ends, and the practical consequence is tighter bot protection breaking the
+# scraper, not a legal one.
+User-agent: *
+Disallow: /

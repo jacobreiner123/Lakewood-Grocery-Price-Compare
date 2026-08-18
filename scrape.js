@@ -68,15 +68,28 @@ const extractGrid = (page, cardSel, carouselSel, brandSel, sizeSel) => page.eval
 }, { cardSel, carouselSel, brandSel, sizeSel });
 
 const STOP = new Set(['featured products','specials','weekly specials','new items','meat','dairy','produce','bakery','grocery','frozen','deli','fish','appetizing','health & beauty','household','beverages','snacks','candy','wine & liquor','pharmacy','departments','shop by department','categories','featured','all products','products','view all','see all','shop now','add to cart','out of stock']);
-const junk = s => { const n=(s||'').trim(); return n.length<3||n.length>90||STOP.has(n.toLowerCase())||!/[a-z]/.test(n)||/^\$?\d/.test(n); };
+// `structured` skips the all-caps rule. That rule drops section headings ("MEAT",
+// "FEATURED PRODUCTS") that leak in when scraping rendered HTML, but it is wrong for a
+// store whose catalogue endpoint returns genuine product names in caps — Kosher Village
+// writes every name that way, and applying it there discarded 92% of the catalogue.
+const junk = (s, structured) => {
+  const n = (s || '').trim();
+  return n.length < 3 || n.length > 90 || STOP.has(n.toLowerCase())
+    || (!structured && !/[a-z]/.test(n)) || /^\$?\d/.test(n);
+};
 const slug = s => String(s||'').toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') || 'c';
 
 // ---------------------------------------------------------------------------
 // Store configs
 // ---------------------------------------------------------------------------
+// `market` keeps each store's prices attached to the trading area they belong to.
+// Brooklyn rents, competition and delivery economics differ enough from Lakewood's
+// that averaging them into one basket would repeat the bug that had Seasons mixing
+// Lawrence and Queens prices into "Lakewood".
 const STORES = [
   {
     name: 'Seasons',
+    market: 'Lakewood',
     enabled: true,
     home: 'https://seasonskosher.com/lakewood',
     cardSel: '.product-item',
@@ -102,6 +115,7 @@ const STORES = [
   },
   {
     name: 'Gourmet Glatt',
+    market: 'Lakewood',
     enabled: true,
     home: 'https://www.gourmetglattonline.com/',
     // SelfPoint's real card is .product-item (wraps an <sp-product>). The old catch-all
@@ -134,6 +148,7 @@ const STORES = [
     // real-Chrome setup applies. Both NPGS locations (Main St and South Lake) are in
     // Lakewood, so unlike the other two there's no wrong-market risk to guard against.
     name: 'NPGS',
+    market: 'Lakewood',
     enabled: true,
     home: 'https://www.gonpgs.com/',
     cardSel: '.product-item',
@@ -146,6 +161,77 @@ const STORES = [
     async categories(page) {
       const hrefs = await page.$$eval('a[href]', as => [...new Set(as.map(a => a.href))]);
       return hrefs.filter(u => /\/categories\/\d+/i.test(u)).map(u => ({ url: u, name: null }));
+    },
+  },
+  {
+    // Brooklyn (Flatbush), not Lakewood — a different market, tagged accordingly.
+    // Same SelfPoint platform as Gourmet Glatt and NPGS, and it served content
+    // without a bot challenge, but it gets the same real-Chrome setup for consistency.
+    // The storefront is on the shop. subdomain; moishas.com itself is a WordPress
+    // marketing site with no products on it.
+    name: "Moisha's",
+    market: 'Brooklyn',
+    enabled: true,
+    home: 'https://shop.moishas.com/',
+    cardSel: '.product-item',
+    carouselSel: '.sp-carousel',
+    brandSel: '.brand',
+    sizeSel: '.weight',
+    channel: 'chrome',
+    headed: true,
+    profileDir: process.env.MOISHAS_PROFILE || path.join(__dirname, '.moishas-profile'),
+    async categories(page) {
+      const hrefs = await page.$$eval('a[href]', as => [...new Set(as.map(a => a.href))]);
+      return hrefs.filter(u => /\/categories\/\d+/i.test(u)).map(u => ({ url: u, name: null }));
+    },
+  },
+  {
+    // Lakewood, on its own platform (neither My Cloud Grocer nor SelfPoint). Uses the
+    // harvest escape hatch — see crawlStore for why the DOM route is unusable here.
+    // Richest data of any store: real UPCs on ~93% of products, plus structured brand
+    // and size, which makes it the strongest anchor for cross-store matching.
+    name: 'Kosher Village',
+    market: 'Lakewood',
+    enabled: true,
+    home: 'https://www.koshervillage.com/',
+    channel: 'chrome',
+    headed: true,
+    profileDir: process.env.KV_PROFILE || path.join(__dirname, '.kv-profile'),
+    async harvest(page) {
+      const raw = await page.evaluate(async () => {
+        const base = '/api/services/supplier-ms/public/api/v1/groceries/_search';
+        const out = [];
+        for (let p = 0; p < 200; p++) {
+          const r = await fetch(`${base}?page=${p}&size=100&sort=originalId,desc&supplierId=2252&query=&categories=`, { credentials: 'include' });
+          if (!r.ok) break;
+          const j = await r.json();
+          const arr = Array.isArray(j) ? j : (j?.content || []);
+          if (!arr.length) break;
+          out.push(...arr);
+          await new Promise(s => setTimeout(s, 120)); // don't hammer their API
+        }
+        // Brands arrive as ids; resolve them so names are comparable to other stores.
+        const ids = [...new Set(out.map(x => x.brand?.id).filter(Boolean))];
+        const map = {};
+        for (let i = 0; i < ids.length; i += 200) {
+          try {
+            const r = await fetch('/api/services/selector-ms/public/api/v1/categories/categories-by-ids?tenantId=2252&entityType=GROCERY_BRAND', {
+              method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include',
+              body: JSON.stringify(ids.slice(i, i + 200)),
+            });
+            const j = await r.json();
+            for (const b of (Array.isArray(j) ? j : j?.content || [])) map[b.id] = b.name;
+          } catch {}
+        }
+        return out.map(x => ({
+          name: (x.name || '').trim(),
+          brand: map[x.brand?.id] || null,
+          size: x.unitValue && x.unitType ? `${x.unitValue} ${String(x.unitType).toLowerCase().replace('fl_oz', 'fl oz')}` : null,
+          price: x.groceryPrice?.basicPrice ?? x.searchPrice?.basicPrice ?? null,
+          upc: x.upc && /^\d{11,14}$/.test(String(x.upc)) ? String(x.upc) : null,
+        }));
+      });
+      return raw.filter(r => r.name && r.price > 0);
     },
   },
 ];
@@ -186,10 +272,14 @@ async function crawlStore(handle, cfg) {
   const byKey = new Map(), now = new Date().toISOString();
   let cat = null;
   const add = (it) => {
-    if (junk(it.name)) return;
+    if (junk(it.name, !!cfg.harvest)) return;
     const k = it.name.toLowerCase() + '|' + (it.brand || '').toLowerCase() + '|' + (it.size || '') + '|' + it.price;
     if (!byKey.has(k)) byKey.set(k, {
-      store: cfg.name, name: it.name, brand: it.brand || null, size: it.size || null,
+      store: cfg.name, market: cfg.market || null,
+      name: it.name, brand: it.brand || null, size: it.size || null,
+      // Only Kosher Village publishes barcodes. Kept because it's an exact product
+      // identity — useful within the store, and free leverage if another ever adds it.
+      ...(it.upc ? { upc: it.upc } : {}),
       price: it.price, category: cat, scrapedAt: now,
     });
   };
@@ -253,6 +343,24 @@ async function crawlStore(handle, cfg) {
       return [];
     }
     console.log(`[${cfg.name}] store location confirmed: ${shown}`);
+  }
+
+  // A store may supply its own harvester instead of a category crawl. Kosher Village
+  // needs this: every category page renders exactly 20 products with no pagination,
+  // no "load more" and nothing gained by scrolling, so the DOM physically cannot yield
+  // the catalogue. Its own public search endpoint pages properly and returns brand,
+  // size and UPC as structured fields. This is a deliberate exception to the
+  // read-prices-from-the-DOM rule above — that rule exists because network sniffing
+  // returned zero products on Seasons while the DOM worked, i.e. "use the source that
+  // actually returns correct data". Here the DOM is the one that can't.
+  if (cfg.harvest) {
+    let recs = [];
+    try { recs = await cfg.harvest(page); }
+    catch (e) { console.log(`[${cfg.name}] harvest failed: ${e.message.split('\n')[0]}`); }
+    for (const it of recs) { cat = it.category || null; add(it); }
+    const out = [...byKey.values()];
+    console.log(`[${cfg.name}] captured ${out.length} products via the store's own catalogue endpoint`);
+    return out;
   }
 
   let cats = [];

@@ -173,17 +173,27 @@ async function propose() {
   console.log(`blocking produced ${groups.length} products with candidates`);
   if (!groups.length) { console.log('nothing to match — has the brand/size re-crawl finished?'); return; }
 
-  // Ask only about products with no usable prior decision. On a steady-state refresh
-  // this is normally near zero, which is the point.
+  // Ask only what isn't already known. Three cases:
+  //   - no prior decision            -> ask about every candidate
+  //   - prior decision, same options -> reuse, ask nothing
+  //   - prior decision, new options  -> ask ONLY about the added candidates
+  // The third case matters: adding a store changes the candidate set for nearly every
+  // product, and re-asking the whole question would repay the entire matching cost on
+  // every store added. A previously-rejected candidate stays rejected, so only the new
+  // ones need judging, and the answers merge with what's already cached.
   const cache = loadCache();
-  let reused = 0, stale = 0;
-  const todo = groups.filter(g => {
+  let reused = 0, delta = 0, fresh = 0;
+  const todo = [];
+  for (const g of groups) {
     const prior = cache.decisions[keyOf(g.anchor)];
-    if (!prior) return true;
-    if (prior.fingerprint !== fingerprint(g.candidates)) { stale++; return true; }
-    reused++; return false;
-  });
-  console.log(`cache: ${reused} reused, ${stale} re-asked (candidates changed), ${todo.length} to decide`);
+    if (!prior) { todo.push({ ...g, priorMatched: [] }); fresh++; continue; }
+    const priorKeys = new Set(String(prior.fingerprint || '').split('~').filter(Boolean));
+    const added = g.candidates.filter(c => !priorKeys.has(keyOf(c.p)));
+    if (!added.length) { reused++; continue; }
+    todo.push({ anchor: g.anchor, candidates: added, priorMatched: prior.matchedKeys || [], allCandidates: g.candidates });
+    delta++;
+  }
+  console.log(`cache: ${reused} reused as-is, ${delta} asked only about new candidates, ${fresh} asked in full`);
   if (!todo.length) { console.log('nothing new to match — run "node match.js rebuild"'); return; }
 
   const chunks = [];
@@ -219,7 +229,10 @@ async function propose() {
     chunks: chunks.map(c => c.map(g => ({
       anchor: { store: 'Seasons', name: g.anchor.name, brand: g.anchor.brand, size: g.anchor.size },
       anchorKey: keyOf(g.anchor),
-      fingerprint: fingerprint(g.candidates),
+      // Fingerprint covers every candidate considered so far — the ones asked about now
+      // plus any already judged — so a later run knows what's genuinely new.
+      fingerprint: fingerprint(g.allCandidates || g.candidates),
+      priorMatched: g.priorMatched || [],
       candidates: g.candidates.map(c2 => ({ store: c2.store, name: c2.p.name, brand: c2.p.brand, size: c2.p.size, key: keyOf(c2.p) })),
     }))),
   }, null, 2));
@@ -245,8 +258,11 @@ async function collect() {
       if (!g) continue;
       // "No match" is a decision worth keeping too — otherwise every refresh pays to
       // re-discover that a product simply isn't carried by the other stores.
+      const newlyMatched = (res.matches || []).map(l => g.candidates[l.charCodeAt(0) - 65]?.key).filter(Boolean);
       cache.decisions[g.anchorKey] = {
-        matchedKeys: (res.matches || []).map(l => g.candidates[l.charCodeAt(0) - 65]?.key).filter(Boolean),
+        // Merge with anything matched in an earlier round — this answer may only cover
+        // the candidates that were new this time.
+        matchedKeys: [...new Set([...(g.priorMatched || []), ...newlyMatched])],
         confidence: res.confidence,
         fingerprint: g.fingerprint,
         model: state.model,

@@ -7,3 +7,6 @@ node_modules/
 # Transient batch-submission state. data/match-cache.json holds the durable
 # decisions and IS committed — that's what makes matching a one-time cost.
 data/match-batch.json
+
+.moishas-profile/
+.kv-profile/
